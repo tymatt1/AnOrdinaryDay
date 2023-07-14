@@ -1,6 +1,17 @@
+import pygame as pg
 import StoryUI as s
+import Input
 
-# start game loop
-while True:
+
+screen = pg.display.set_mode((300, 300), pg.RESIZABLE)
+pg.display.set_caption("Epic Game 🐸")
+
+running = True
+while running:     # start game loop
+    screen.fill((100, 100, 100))
+    Input.handle()
+    if Input.stop: running = False
+
     test = s.TextBox("hi")
-    print(test.text)
+
+pg.quit()
