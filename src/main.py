@@ -1,3 +1,6 @@
 import StoryUI as s
 
-s.test()
+# start game loop
+while True:
+    test = s.TextBox("hi")
+    print(test.text)
