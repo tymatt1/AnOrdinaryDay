@@ -18,5 +18,4 @@ class TextBox(UIElement):
 class Decision(UIElement):
     def __init__(self, *choices):
         super().__init__()
-        self.count = len(choices)
         self.choices = choices
