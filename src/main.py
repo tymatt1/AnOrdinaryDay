@@ -1,6 +1,6 @@
 import pygame as pg
-import assets
-# import StoryUI as s
+import Assets
+# import storyUI as s
 import Input
 
 
@@ -9,7 +9,7 @@ FPS: int = 60
 pg.init()
 screen = pg.display.set_mode((1200, 675), pg.RESIZABLE)  # setup, 16:9 screen ratio
 pg.display.set_caption("Epic Game 🐸")
-pg.display.set_icon(assets.icon)
+pg.display.set_icon(Assets.icon)
 
 greet = pg.font.Font("freesansbold.ttf", 64).render("HELLO", True, (0, 0, 0))
 greetRect = greet.get_rect()
@@ -29,9 +29,9 @@ while running:  # start game loop
     c.hsva = (hue % 360, 100, 100, 100)  # background color
     screen.fill(c)
 
-    screen.blit(assets.testImg,
-                ((screen.get_size()[0] / 2) - (assets.testImg.get_size()[0] / 2),  # display phrog in middle
-                 (screen.get_size()[1] / 2) - (assets.testImg.get_size()[1] / 2)))
+    screen.blit(Assets.testImg,
+                ((screen.get_size()[0] / 2) - (Assets.testImg.get_size()[0] / 2),  # display phrog in middle
+                 (screen.get_size()[1] / 2) - (Assets.testImg.get_size()[1] / 2)))
 
     greetRect.center = (screen.get_size()[0] / 2, (greetRect.size[1] / 2) + (screen.get_size()[1] / 7))
     screen.blit(greet, greetRect)
