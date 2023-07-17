@@ -29,6 +29,13 @@ def drawRect(color: tuple, pos: tuple, dims: tuple):
     screen.blit(s, pos)
 
 def drawText(text: string, fontSize: int, pos: tuple, color: tuple = (255, 255, 255), font: string = "freesansbold.ttf"):
+    if "\n" in text:
+        lines: tuple = text.split("\n")
+        middle = (len(lines) - 1) / 2
+        for i in range(len(lines)):
+            drawText(lines[i], fontSize, (pos[0], pos[1] + ((i - middle) * fontSize)), color, font)
+        return
+
     text = pg.font.Font(font, fontSize).render(text, True, color)
     textRect = text.get_rect()
     textRect.centerx = width() / 2 if pos[0] == -1 else pos[0]

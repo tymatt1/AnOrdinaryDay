@@ -3,4 +3,4 @@ import Assets
 
 
 currentScene = None
-start = Scene(None, Assets.testImg, TextBox("You wake up in a laaaaaaaaaaaaaaaaaaaaaaaateyrsetdrydtesrtdfkyutrd\nfcgjhvtufyaaaaaaaaaarge room"))  # make first scene current so it starts
+start = Scene(None, Assets.testImg, TextBox("this is a long string of text that i am writing\nfor demonstration purposes woiaiweoi fhaef uhaijs fbais"))  # make first scene current so it starts
