@@ -1,4 +1,5 @@
 import string
+import pygame as pg
 import Assets
 
 
@@ -24,9 +25,10 @@ class Decision(UIElement):
 
 
 class Scene:
-    def __init__(self, nextScene, *elements):
-        self.elements = elements
+    def __init__(self, nextScene, background: pg.surface.Surface, *elements):
         self.nextScene = nextScene
+        self.background = background
+        self.elements = elements
 
     def start(self):
         # do stuff

@@ -1,16 +1,13 @@
 import pygame as pg
 import Assets
-# import storyUI as s
 import Input
 import scenes
+import renderHelper as rh
 
 
 FPS: int = 60
 
-pg.init()
-screen = pg.display.set_mode((1200, 675))  # setup, 16:9 screen ratio
-pg.display.set_caption("Epic Game 🐸")
-pg.display.set_icon(Assets.icon)
+rh.init(Assets.icon)
 
 greet = pg.font.Font("freesansbold.ttf", 64).render("HELLO", True, (0, 0, 0))
 greetRect = greet.get_rect()
@@ -30,21 +27,23 @@ while running:  # start game loop
 
     c = pg.Color(0, 0, 0, 0)
     c.hsva = (hue % 360, 100, 100, 100)  # background color
-    screen.fill(c)
+    rh.screen.fill(c)
 
-    screen.blit(Assets.testImg,
-                ((screen.get_size()[0] / 2) - (Assets.testImg.get_size()[0] / 2),  # display phrog in middle
-                 (screen.get_size()[1] / 2) - (Assets.testImg.get_size()[1] / 2)))
+    rh.screen.blit(Assets.testImg,
+                ((rh.screen.get_size()[0] / 2) - (Assets.testImg.get_size()[0] / 2),  # display phrog in middle
+                 (rh.screen.get_size()[1] / 2) - (Assets.testImg.get_size()[1] / 2)))
 
-    greetRect.center = (screen.get_size()[0] / 2, (greetRect.size[1] / 2) + (screen.get_size()[1] / 7))
-    screen.blit(greet, greetRect)
+    greetRect.center = (rh.screen.get_size()[0] / 2, (greetRect.size[1] / 2) + (rh.screen.get_size()[1] / 7))
+    rh.screen.blit(greet, greetRect)
 
-    textRect.center = (screen.get_size()[0] / 2, screen.get_size()[1] - (textRect.size[1] / 2) - (screen.get_size()[1] / 7))
-    screen.blit(text, textRect)
+    textRect.center = (rh.screen.get_size()[0] / 2, rh.screen.get_size()[1] - (textRect.size[1] / 2) - (rh.screen.get_size()[1] / 7))
+    rh.screen.blit(text, textRect)
 
     hue += 1  # important
 
     pg.display.flip()  # update display
+
+    rh.render()  # render everything from frame
     pg.time.wait(int(1000 / FPS) - (pg.time.get_ticks() - startMillis))  # do math to fps limit the game
 
 pg.quit()
