@@ -1,6 +1,7 @@
 import string
 import pygame as pg
-import Assets
+import renderHelper as rh
+import scenes
 
 
 class UIElement:
@@ -31,10 +32,7 @@ class Scene:
         self.elements = elements
 
     def start(self):
-        # do stuff
-
-        if self.nextScene is not None:
-            self.nextScene.start()
+        scenes.currentScene = self
 
     def render(self, index):
         pass

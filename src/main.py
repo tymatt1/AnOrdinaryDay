@@ -43,6 +43,7 @@ while running:  # start game loop
 
     pg.display.flip()  # update display
 
+    scenes.currentScene.render()
     rh.render()  # render everything from frame
     pg.time.wait(int(1000 / FPS) - (pg.time.get_ticks() - startMillis))  # do math to fps limit the game
 
