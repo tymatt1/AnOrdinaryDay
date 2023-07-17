@@ -30,9 +30,17 @@ class Scene:
         self.nextScene = nextScene
         self.background = background
         self.elements = elements
+        self.index = 0
 
     def start(self):
         scenes.currentScene = self
 
-    def render(self, index):
+    def update(self):
         pass
+
+    def render(self):
+        height = 200
+        rh.drawRect((0, 0, 0, 220), (0, rh.height() - 200), (rh.width(), height))
+
+        if type(self.elements[self.index]) is TextBox:
+            rh.drawText(self.elements[self.index].text, 32, (-1, rh.height() - (height / 2)))
