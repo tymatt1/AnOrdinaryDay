@@ -44,7 +44,7 @@ while running:  # start game loop
     pg.display.flip()  # update display
 
     scenes.currentScene.render()
-    rh.render()  # render everything from frame
+    rh.render()  # maybe delete later???
     pg.time.wait(int(1000 / FPS) - (pg.time.get_ticks() - startMillis))  # do math to fps limit the game
 
 pg.quit()
