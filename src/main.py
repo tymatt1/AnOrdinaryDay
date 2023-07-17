@@ -5,7 +5,7 @@ import scenes
 import renderHelper as rh
 
 
-FPS: int = 60
+FPS = 60
 
 rh.init("Epic Game 🐸", Assets.icon)
 
@@ -31,7 +31,7 @@ while running:  # start game loop
 
     rh.screen.blit(Assets.testImg,
                 ((rh.screen.get_size()[0] / 2) - (Assets.testImg.get_size()[0] / 2),  # display phrog in middle
-                 (rh.screen.get_size()[1] / 2) - (Assets.testImg.get_size()[1] / 2)))
+                (rh.screen.get_size()[1] / 2) - (Assets.testImg.get_size()[1] / 2)))
 
     greetRect.center = (rh.screen.get_size()[0] / 2, (greetRect.size[1] / 2) + (rh.screen.get_size()[1] / 7))
     rh.screen.blit(greet, greetRect)

@@ -21,6 +21,17 @@ def init(text: string, icon: pg.Surface):
     pg.display.set_icon(icon)
 
 
+def drawImg(img: pg.Surface, pos: tuple, dims: tuple):
+    img = pg.transform.scale(img, (
+            width() if dims[0] == -1 else dims[0],
+            height() if dims[1] == -1 else dims[1]
+        ))
+
+    screen.blit(img, (
+            (width() / 2) - (img.get_size()[0] / 2) if pos[0] == -1 else pos[0],
+            (height() / 2) - (img.get_size()[1] / 2) if pos[1] == -1 else pos[1]
+        ))
+
 def drawRect(color: tuple, pos: tuple, dims: tuple):
     s = pg.Surface(dims)  # size
     s.set_alpha(color[3])
