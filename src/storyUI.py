@@ -59,9 +59,10 @@ class Scene:
         if type(elem) is Decision:
             rh.drawRect((0, 0, 0, 200), (0, rh.height() - boxHeight), (rh.width(), boxHeight))
 
-            boxWidth = 300
             count = len(elem.choices)
+            boxWidth = rh.width() / (count + 2)
             for i in range(count):
                 x = (rh.width() / (count + 1)) * (i + 1)
                 rh.drawRect((0, 0, 10, 200), (x - boxWidth / 2, rh.height() - boxHeight), (boxWidth, boxHeight))
+                rh.drawText(str(i + 1), 16, (x, rh.height() - (boxHeight - 16)))
                 rh.drawText(elem.choices[i][0], 16, (x, rh.height() - (boxHeight / 2)))
