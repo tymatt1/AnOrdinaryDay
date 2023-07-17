@@ -4,12 +4,21 @@ import os
 
 path = os.path.dirname(os.path.abspath(__file__))  # need to add the path or it won't run when double clicked
 
+def load(name) -> pg.Surface:
+    return pg.image.load(f"{path}/{name}.png")
+
+
 # misc
-icon = pg.image.load(path + "/icon.png")
-testImg = pg.image.load(path + "/phrog.png")
-character = pg.image.load(path + "/characterSprite/charStill.png")
+icon = load("icon")
+testImg = load("phrog")
+character = load("characterSprite/charStill")
+whiteVan = load("misc/White Van")
+sword = load("misc/Sword")
+waterGun = load("misc/WaterGun")
+sus = load("misc/ඩ")
 
 # backgrounds
-diningHall = pg.image.load(path + "/backgrounds/diningHall/dininghall.png")
-bedroom = pg.image.load(path + "/backgrounds/bedroom.png")
-sixFlags = pg.image.load(path + "/backgrounds/Six Flags.png")
+diningHall = load("backgrounds/diningHall/dininghall")
+bedroom = load("backgrounds/bedroom")
+sixFlags = load("backgrounds/Six Flags")
+classroom = load("backgrounds/classroom")
