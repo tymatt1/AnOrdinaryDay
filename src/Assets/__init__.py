@@ -15,6 +15,7 @@ character = load("characterSprite/charStill")
 whiteVan = load("misc/White Van")
 sword = load("misc/Sword")
 waterGun = load("misc/WaterGun")
+sus = load("misc/ඩ")
 
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")
