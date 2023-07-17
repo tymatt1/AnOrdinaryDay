@@ -2,12 +2,13 @@ import pygame as pg
 import Assets
 # import storyUI as s
 import Input
+import scenes
 
 
 FPS: int = 60
 
 pg.init()
-screen = pg.display.set_mode((1200, 675), pg.RESIZABLE)  # setup, 16:9 screen ratio
+screen = pg.display.set_mode((1200, 675))  # setup, 16:9 screen ratio
 pg.display.set_caption("Epic Game 🐸")
 pg.display.set_icon(Assets.icon)
 
@@ -16,6 +17,8 @@ greetRect = greet.get_rect()
 
 text = pg.font.Font("freesansbold.ttf", 64).render("I'M GOING TO RGBEAT YOU", True, (0, 0, 0))
 textRect = text.get_rect()
+
+scenes.start.start()
 
 hue = 0
 running = True

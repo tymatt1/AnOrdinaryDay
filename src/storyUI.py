@@ -24,10 +24,9 @@ class Decision(UIElement):
 
 
 class Scene:
-    def __init__(self, *elements, nextScene):
+    def __init__(self, nextScene, *elements):
         self.elements = elements
         self.nextScene = nextScene
-        self.displaying = False
 
     def start(self):
         # do stuff
