@@ -26,7 +26,7 @@ class Decision(UIElement):
 
 
 class Scene:
-    def __init__(self, nextScene, background: pg.surface.Surface, *elements):
+    def __init__(self, nextScene, background: pg.Surface, *elements):
         self.nextScene = nextScene
         self.background = background
         self.elements = elements
@@ -39,8 +39,14 @@ class Scene:
         pass
 
     def render(self):
-        height = 200
-        rh.drawRect((0, 0, 0, 220), (0, rh.height() - 200), (rh.width(), height))
+        rh.drawImg(self.background, (-1, -1), (-1, -1))
 
-        if type(self.elements[self.index]) is TextBox:
-            rh.drawText(self.elements[self.index].text, 32, (-1, rh.height() - (height / 2)))
+        elemType = type(self.elements[self.index])
+
+        if elemType is TextBox:
+            boxHeight = 200
+            rh.drawRect((0, 0, 0, 200), (0, rh.height() - 200), (rh.width(), boxHeight))
+            rh.drawText(self.elements[self.index].text, 32, (-1, rh.height() - (boxHeight / 2)))
+
+        if elemType is Decision:
+            pass
