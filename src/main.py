@@ -7,7 +7,7 @@ import renderHelper as rh
 
 FPS: int = 60
 
-rh.init(Assets.icon)
+rh.init("Epic Game 🐸", Assets.icon)
 
 greet = pg.font.Font("freesansbold.ttf", 64).render("HELLO", True, (0, 0, 0))
 greetRect = greet.get_rect()
@@ -37,13 +37,13 @@ while running:  # start game loop
     rh.screen.blit(greet, greetRect)
 
     textRect.center = (rh.screen.get_size()[0] / 2, rh.screen.get_size()[1] - (textRect.size[1] / 2) - (rh.screen.get_size()[1] / 7))
-    rh.screen.blit(text, textRect)
+    # rh.screen.blit(text, textRect)
 
     hue += 1  # important
 
-    pg.display.flip()  # update display
-
+    scenes.currentScene.update()
     scenes.currentScene.render()
+
     rh.render()  # maybe delete later???
     pg.time.wait(int(1000 / FPS) - (pg.time.get_ticks() - startMillis))  # do math to fps limit the game
 
