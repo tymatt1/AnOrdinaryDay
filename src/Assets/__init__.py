@@ -13,6 +13,7 @@ icon = load("icon")
 testImg = load("phrog")
 character = load("characterSprite/charStill")
 whiteVan = load("misc/White Van")
+sword = load("misc/Sword")
 
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")
