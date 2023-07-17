@@ -39,7 +39,9 @@ class Scene:
     def update(self):
         elem = self.elements[self.index]
 
-        if type(elem) is TextBox and Input.getKey(pg.K_SPACE): self.index += 1
+        if type(elem) is TextBox and Input.getKey(pg.K_SPACE):
+            if self.index + 1 < len(self.elements): self.index += 1
+            elif self.nextScene is not None: self.nextScene.start()
         if type(elem) is Decision:
             for i in range(len(elem.choices)):
                 if Input.getKey(i + 49): elem.choices[i][1].start()
