@@ -56,4 +56,4 @@ class Scene:
             for i in range(count):
                 x = (rh.width() / (count + 1)) * (i + 1)
                 rh.drawRect((0, 0, 0, 200), (x - boxWidth / 2, rh.height() - boxHeight), (boxWidth, boxHeight))
-                rh.drawText(elem.choices[i])
+                rh.drawText(elem.choices[i][0], 16, (x, rh.height() - (boxHeight / 2)))
