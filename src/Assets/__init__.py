@@ -14,6 +14,7 @@ testImg = load("phrog")
 character = load("characterSprite/charStill")
 whiteVan = load("misc/White Van")
 sword = load("misc/Sword")
+waterGun = load("misc/WaterGun")
 
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")
