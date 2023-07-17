@@ -40,13 +40,20 @@ class Scene:
 
     def render(self):
         rh.drawImg(self.background, (-1, -1), (-1, -1))
+        boxHeight = 200
 
-        elemType = type(self.elements[self.index])
+        elem = self.elements[self.index]
 
-        if elemType is TextBox:
-            boxHeight = 200
-            rh.drawRect((0, 0, 0, 200), (0, rh.height() - 200), (rh.width(), boxHeight))
-            rh.drawText(self.elements[self.index].text, 32, (-1, rh.height() - (boxHeight / 2)))
+        if type(elem) is TextBox:
+            rh.drawRect((0, 0, 0, 200), (0, rh.height() - boxHeight), (rh.width(), boxHeight))
+            rh.drawText(elem.text, 32, (-1, rh.height() - (boxHeight / 2)))
 
-        if elemType is Decision:
-            pass
+        if type(elem) is Decision:
+            rh.drawRect((0, 0, 100, 150), (0, rh.height() - boxHeight), (rh.width(), boxHeight))
+
+            boxWidth = 300
+            count = len(elem.choices)
+            for i in range(count):
+                x = (rh.width() / (count + 1)) * (i + 1)
+                rh.drawRect((0, 0, 0, 200), (x - boxWidth / 2, rh.height() - boxHeight), (boxWidth, boxHeight))
+                rh.drawText(elem.choices[i])
