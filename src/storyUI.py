@@ -1,5 +1,6 @@
 import string
 import pygame as pg
+import Input
 import renderHelper as rh
 import scenes
 
@@ -36,7 +37,12 @@ class Scene:
         scenes.currentScene = self
 
     def update(self):
-        pass
+        elem = self.elements[self.index]
+
+        if type(elem) is TextBox and Input.getKey(pg.K_SPACE): self.index += 1
+        if type(elem) is Decision:
+            for i in range(len(elem.choices)):
+                if Input.getKey(i + 49): elem.choices[i][1].start()
 
     def render(self):
         rh.drawImg(self.background, (-1, -1), (-1, -1))
@@ -49,11 +55,11 @@ class Scene:
             rh.drawText(elem.text, 32, (-1, rh.height() - (boxHeight / 2)))
 
         if type(elem) is Decision:
-            rh.drawRect((0, 0, 100, 150), (0, rh.height() - boxHeight), (rh.width(), boxHeight))
+            rh.drawRect((0, 0, 0, 200), (0, rh.height() - boxHeight), (rh.width(), boxHeight))
 
             boxWidth = 300
             count = len(elem.choices)
             for i in range(count):
                 x = (rh.width() / (count + 1)) * (i + 1)
-                rh.drawRect((0, 0, 0, 200), (x - boxWidth / 2, rh.height() - boxHeight), (boxWidth, boxHeight))
+                rh.drawRect((0, 0, 10, 200), (x - boxWidth / 2, rh.height() - boxHeight), (boxWidth, boxHeight))
                 rh.drawText(elem.choices[i][0], 16, (x, rh.height() - (boxHeight / 2)))
