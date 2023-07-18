@@ -27,7 +27,7 @@ class Character(Element):
     def __init__(self, movImg: pg.Surface, dims: tuple[float, float], start: tuple, end: tuple, duration: float, *imgs: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
         """
         :param movImg: The image from the Assets package to be lerped
-        :param start: The start of the lerpation
+        :param start: The start of the lerptation
         :param end: The end of the lerpationification
         :param duration: The time for the lerpididilydo
         :param imgs: A tuple of tuples with the image and position of static images
