@@ -16,7 +16,7 @@ class Character:
 # characters
 zach = Character("Zach")
 anime = Character("Anime")
-# matthew = Character("Matthew")
+matthew = Character("Matthew")
 
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")
