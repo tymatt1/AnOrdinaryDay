@@ -8,9 +8,15 @@ def load(name: string) -> pg.Surface:
     return pg.image.load(f"{path}/{name}.png")
 
 class Character:
-    zachStillLeft: pg.Surface = load("character/ZachStillLeft")
-    zachStillRight: pg.Surface = load("character/ZachStillRight")
+    def __init__(self, name: string):
+        self.stillLeft: pg.Surface = load(f"character/{name}StillLeft")
+        self.stillRight: pg.Surface = load(f"character/{name}StillRight")
 
+
+# characters
+zach = Character("Zach")
+anime = Character("Anime")
+# matthew = Character("Matthew")
 
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")

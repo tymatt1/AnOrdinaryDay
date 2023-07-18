@@ -17,7 +17,7 @@ dine = Scene(None, Assets.diningHall,
 dorm = Scene(None, Assets.bedroom,
              TextBox("Good Morning"),
              Decision(
-                 ("Get Ready", Scene(dine, Assets.bedroom, TextBox("Getting Ready"), Character(Assets.Character.zachStillLeft, (100, 80), (900, 260), (10, 260), 2.5,))),
+                 ("Get Ready", Scene(dine, Assets.bedroom, TextBox("Getting Ready"), Character(Assets.zach.stillLeft, (100, 80), (900, 260), (10, 260), 2.5,))),
                  ("Sleep Longer Without Alarm", Scene(None, Assets.bedroom, TextBox("Sleeping"))),
                  ("Sleep Longer With Alarm", Scene(None, Assets.bedroom, TextBox("Sleeping"))),
              )

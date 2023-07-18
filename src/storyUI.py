@@ -7,8 +7,8 @@ import scenes
 
 
 class Element:
-    def __init__(self):
-        pass
+    def __init__(self, statics: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
+        self.statics = statics
 
 
 class TextBox(Element):
@@ -24,22 +24,27 @@ class Decision(Element):
 
 
 class Character(Element):
-    def __init__(self, movImg: pg.Surface, dims: tuple[float, float], start: tuple[float, float], end: tuple[float, float], duration: float, *imgs: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
+    def __init__(self, movImg: pg.Surface, dims: tuple[float, float], start: tuple[float, float], end: tuple[float, float], duration: float, *statics: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
         """
         :param movImg: The image from the Assets package to be lerped
         :param start: The start of the lerptation
         :param end: The end of the lerpationification
         :param duration: The time for the lerpididilydo
-        :param imgs: A tuple of tuples with the image and position of static images
+        :param statics: A tuple of tuples with the image and position of static images
         """
         super().__init__()
         self.movImg = movImg
         self.dims = dims
         self.start = start
         self.end = end
-        self.imgs = imgs
+        self.statics = statics
         self.duration = duration * 1000
         self.current = 0
+
+
+class QuickTime(Element):
+    def __init__(self):
+        super().__init__()
 
 
 class Scene:
@@ -95,6 +100,6 @@ class Scene:
 
         if type(elem) is Character:
             rh.drawImg(elem.movImg, LerpTuple(elem.start, elem.end, elem.current / elem.duration), elem.dims)
-            imgs = elem.imgs
-            for i in range(len(imgs)):
-                rh.drawImg(imgs[i][0], imgs[i][1], imgs[i][2])
+            statics = elem.statics
+            for i in range(len(statics)):
+                rh.drawImg(statics[i][0], statics[i][1], statics[i][2])
