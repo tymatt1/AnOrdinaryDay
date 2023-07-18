@@ -22,6 +22,11 @@ def init(text: string, icon: pg.Surface):
 
 
 def drawImg(img: pg.Surface, pos: tuple, dims: tuple):
+    """
+    :param img: The surface taken from the Assets package
+    :param pos: The position of the top left corner of the image. A value of -1 will center the image in that dimenison
+    :param dims: The dimensions of the image. A value of -1 will make the image the width or height of the window
+    """
     img = pg.transform.scale(img, (
             width() if dims[0] == -1 else dims[0],
             height() if dims[1] == -1 else dims[1]
@@ -33,6 +38,11 @@ def drawImg(img: pg.Surface, pos: tuple, dims: tuple):
         ))
 
 def drawRect(color: tuple, pos: tuple, dims: tuple):
+    """
+    :param color: The color of the rectangle
+    :param pos: The position of the top left corner of the rectangle
+    :param dims: The dimensions of the rectangle
+    """
     s = pg.Surface(dims)  # size
     s.set_alpha(color[3])
     noA = (color[0], color[1], color[2])
@@ -40,6 +50,13 @@ def drawRect(color: tuple, pos: tuple, dims: tuple):
     screen.blit(s, pos)
 
 def drawText(text: string, fontSize: int, pos: tuple, color: tuple = (255, 255, 255), font: string = "freesansbold.ttf"):
+    """
+    :param text: The string to be drawn. Backslash-n will automatically split the text into two lines
+    :param fontSize: The size of the font in pixels
+    :param pos: The position of the middle of the string
+    :param color: The color of the string
+    :param font: A string for the ttf file of the font
+    """
     if "\n" in text:
         lines: tuple = text.split("\n")
         middle = (len(lines) - 1) / 2
