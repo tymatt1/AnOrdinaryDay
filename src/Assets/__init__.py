@@ -19,6 +19,7 @@ anime = Character("Anime")
 matthew = Character("Matthew")
 alex = Character("Alex")
 duy = Character("Duy")
+spiderman = Character("Spiderman")
 
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")
