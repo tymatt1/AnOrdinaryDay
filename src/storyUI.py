@@ -6,25 +6,36 @@ from GameMath import *
 import scenes
 
 
-class Element:
+class StaticsList:
     def __init__(self, statics: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
         self.statics = statics
 
 
+class Element:
+    def __init__(self, statics: StaticsList):
+        self.statics = statics
+
+    def renderStatics(self):
+        if self.statics is None: return
+        toRender = self.statics.statics
+        for i in range(len(toRender)):
+            rh.drawImg(toRender[i][0], toRender[i][1], toRender[i][2])
+
+
 class TextBox(Element):
-    def __init__(self, text: string):
-        super().__init__()
+    def __init__(self, text: string, statics: StaticsList = None):
+        super().__init__(statics)
         self.text: string = text
 
 
 class Decision(Element):
-    def __init__(self, *choices):
-        super().__init__()
+    def __init__(self, *choices, statics: StaticsList = None):
+        super().__init__(statics)
         self.choices = choices
 
 
 class Character(Element):
-    def __init__(self, movImg: pg.Surface, dims: tuple[float, float], start: tuple[float, float], end: tuple[float, float], duration: float, *statics: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
+    def __init__(self, movImg: pg.Surface, dims: tuple[float, float], start: tuple[float, float], end: tuple[float, float], duration: float, statics: StaticsList = None):
         """
         :param movImg: The image from the Assets package to be lerped
         :param start: The start of the lerptation
@@ -32,19 +43,18 @@ class Character(Element):
         :param duration: The time for the lerpididilydo
         :param statics: A tuple of tuples with the image and position of static images
         """
-        super().__init__()
+        super().__init__(statics)
         self.movImg = movImg
         self.dims = dims
         self.start = start
         self.end = end
-        self.statics = statics
         self.duration = duration * 1000
         self.current = 0
 
 
 class QuickTime(Element):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, statics):
+        super().__init__(statics)
 
 
 class Scene:
@@ -79,9 +89,10 @@ class Scene:
 
     def render(self):
         rh.drawImg(self.background, (-1, -1), (-1, -1))
-        boxHeight = 200
-
         elem = self.elements[self.index]
+        super(Element, elem).renderStatics()
+
+        boxHeight = 200
 
         if type(elem) is TextBox:
             rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))
@@ -100,6 +111,3 @@ class Scene:
 
         if type(elem) is Character:
             rh.drawImg(elem.movImg, LerpTuple(elem.start, elem.end, elem.current / elem.duration), elem.dims)
-            statics = elem.statics
-            for i in range(len(statics)):
-                rh.drawImg(statics[i][0], statics[i][1], statics[i][2])
