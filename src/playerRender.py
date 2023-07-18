@@ -4,7 +4,7 @@ import renderHelper as rh
 import Assets
 
 draw = True
-x = 0
+x = 910
 y = 0
 
 

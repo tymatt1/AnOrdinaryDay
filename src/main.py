@@ -8,7 +8,7 @@ import playerRender
 FPS = 60
 
 rh.init("Epic Game 🐸", Assets.icon)
-scenes.start.start()
+scenes.dorm.start()
 
 hue = 0
 running = True
