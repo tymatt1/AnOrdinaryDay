@@ -35,7 +35,7 @@ wakeAt9 = Scene(None, Assets.bedroom,
 dorm = Scene(None, Assets.bedroom,
              TextBox("You wake up to the sound of your alarm.\nIt is 7:30 am."),
              Decision(
-                 ("Get ready", Scene(brushTeeth, Assets.bedroom, TextBox("Getting ready")), Character(Assets.main.stillLeft, (100, 80), (900, 260), (10, 260), 2.5)),
+                 ("Get ready", Scene(brushTeeth, Assets.bedroom, TextBox("Getting ready"), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
                  ("Go back to sleep", Scene(wakeAt9, Assets.bedroom, TextBox("Sleeping"))),
                  ("Snooze alarm", Scene(wakeAt8, Assets.bedroom, TextBox("Sleeping"))),
                  staticsTemp = StaticsList()
