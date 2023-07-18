@@ -14,7 +14,7 @@ class Character:
 
 
 # characters
-zach = Character("Zach")
+# zach = Character("Zach")
 anime = Character("Anime")
 matthew = Character("Matthew")
 alex = Character("Alex")
