@@ -7,19 +7,17 @@ import scenes
 
 
 class StaticsList:
-    def __init__(self, statics: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
+    def __init__(self, *statics: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
         self.statics = statics
+
+    def renderStatics(self):
+        for i in range(len(self.statics)):
+            rh.drawImg(self.statics[i][0], self.statics[i][1], self.statics[i][2])
 
 
 class Element:
     def __init__(self, statics: StaticsList):
         self.statics = statics
-
-    def renderStatics(self):
-        if self.statics is None: return
-        toRender = self.statics.statics
-        for i in range(len(toRender)):
-            rh.drawImg(toRender[i][0], toRender[i][1], toRender[i][2])
 
 
 class TextBox(Element):
@@ -90,7 +88,7 @@ class Scene:
     def render(self):
         rh.drawImg(self.background, (-1, -1), (-1, -1))
         elem = self.elements[self.index]
-        super(Element, elem).renderStatics()
+        if elem.statics is not None: elem.statics.renderStatics()
 
         boxHeight = 200
 
