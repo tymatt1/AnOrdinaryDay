@@ -4,16 +4,6 @@ import Assets
 currentScene = None
 
 
-dorm = Scene(None, Assets.bedroom,
-             TextBox("Good Morning"),
-             Decision(
-                 ("Get Ready", Scene(None, Assets.bedroom, TextBox("Getting Ready"))),
-                 ("Sleep Longer Without Alarm", Scene(None, Assets.bedroom, TextBox("Sleeping"))),
-                 ("Sleep Longer With Alarm", Scene(None, Assets.bedroom, TextBox("Sleeping"))),
-
-             )
-             )
-
 dine = Scene(None, Assets.diningHall,
               TextBox("wow theres food here aaaaaa"),
               Decision(
@@ -24,3 +14,12 @@ dine = Scene(None, Assets.diningHall,
               )
 
 
+dorm = Scene(None, Assets.bedroom,
+             TextBox("Good Morning"),
+             Decision(
+                 ("Get Ready", Scene(dine, Assets.bedroom, TextBox("Getting Ready"))),
+                 ("Sleep Longer Without Alarm", Scene(None, Assets.bedroom, TextBox("Sleeping"))),
+                 ("Sleep Longer With Alarm", Scene(None, Assets.bedroom, TextBox("Sleeping"))),
+
+             )
+             )

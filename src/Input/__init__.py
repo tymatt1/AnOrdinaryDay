@@ -2,6 +2,7 @@ import pygame as pg
 
 
 stop = False
+allowSpace = False
 
 def handle():
     for event in pg.event.get():

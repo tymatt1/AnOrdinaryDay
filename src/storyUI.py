@@ -47,7 +47,10 @@ class Scene:
     def update(self):
         elem = self.elements[self.index]
 
-        if type(elem) is TextBox and Input.getKey(pg.K_SPACE):
+        if not Input.getKey(pg.K_SPACE): Input.allowSpace = True
+
+        if type(elem) is TextBox and Input.allowSpace and Input.getKey(pg.K_SPACE):
+            Input.allowSpace = False
             if self.index + 1 < len(self.elements): self.index += 1
             elif self.nextScene is not None: self.nextScene.start()
         if type(elem) is Decision:
