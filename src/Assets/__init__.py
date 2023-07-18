@@ -22,6 +22,7 @@ alex = Character("Alex")
 duy = Character("Duy")
 jerry = Character("Jerry")
 imaginaryFriend = Character("ImaginaryFriend")
+vanGuy = Character("VanGuy")
 spiderman = Character("Spiderman")
 
 # backgrounds
