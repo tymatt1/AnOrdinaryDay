@@ -32,6 +32,7 @@ bedroom = load("backgrounds/bedroom")
 sixFlags = load("backgrounds/Six Flags")
 classroom = load("backgrounds/classroom")
 vanFight = load("backgrounds/VanFight")
+ufo = load("backgrounds/UFO")
 
 # misc
 icon = load("misc/icon")
