@@ -7,18 +7,35 @@ path = os.path.dirname(os.path.abspath(__file__))  # need to add the path or it 
 def load(name: string) -> pg.Surface:
     return pg.image.load(f"{path}/{name}.png")
 
+class Character:
+    def __init__(self, name: string):
+        self.stillLeft: pg.Surface = load(f"character/{name}StillLeft")
+        self.stillRight: pg.Surface = load(f"character/{name}StillRight")
 
-# misc
-icon = load("icon")
-testImg = load("phrog")
-character = load("characterSprite/charStill")
-whiteVan = load("misc/White Van")
-sword = load("misc/Sword")
-waterGun = load("misc/WaterGun")
-sus = load("misc/ඩ")
+
+# characters
+main = Character("Main")
+zach = Character("Zach")
+anime = Character("Anime")
+matthew = Character("Matthew")
+alex = Character("Alex")
+duy = Character("Duy")
+jerry = Character("Jerry")
+imaginaryFriend = Character("ImaginaryFriend")
+vanGuy = Character("VanGuy")
+spiderman = Character("Spiderman")
 
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")
 bedroom = load("backgrounds/bedroom")
 sixFlags = load("backgrounds/Six Flags")
 classroom = load("backgrounds/classroom")
+vanFight = load("backgrounds/VanFight")
+
+# misc
+icon = load("misc/icon")
+testImg = load("misc/phrog")
+whiteVan = load("misc/White Van")
+sword = load("misc/Sword")
+waterGun = load("misc/WaterGun")
+sus = load("misc/ඩ")
