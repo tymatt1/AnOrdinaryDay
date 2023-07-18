@@ -3,7 +3,6 @@ import Assets
 import Input
 import scenes
 import renderHelper as rh
-import playerRender
 
 FPS = 60
 
@@ -26,7 +25,6 @@ while running:  # start game loop
 
     scenes.currentScene.update()
     scenes.currentScene.render()
-    playerRender.drawCharacter()
 
     rh.render()  # maybe delete later???
     pg.time.wait(int(1000 / FPS) - (pg.time.get_ticks() - startMillis))  # do math to fps limit the game
