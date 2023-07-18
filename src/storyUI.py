@@ -2,28 +2,36 @@ import string
 import pygame as pg
 import Input
 import renderHelper as rh
+from GameMath import Lerp
 import scenes
 
 
-class UIElement:
+class Element:
     def __init__(self):
         pass
 
 
-class TextBox(UIElement):
-    def __init__(self, text: string, speed: float = 1, skippable: bool = True):
+class TextBox(Element):
+    def __init__(self, text: string):
         super().__init__()
         self.text: string = text
-        self.speed: float = speed
-        self.skippable = skippable
-        self.progress: int = 0
-        self.completed: bool = False
 
 
-class Decision(UIElement):
+class Decision(Element):
     def __init__(self, *choices):
         super().__init__()
         self.choices = choices
+
+
+class Character(Element):
+    def __init__(self, movImg: pg.Surface, start: tuple, end: tuple, duration: int, *imgs):
+        super().__init__()
+        self.movImg = movImg
+        self.start = start
+        self.end = end
+        self.imgs = imgs
+        self.duration = duration
+        self.time = 0
 
 
 class Scene:
