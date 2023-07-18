@@ -10,7 +10,7 @@ y = 0
 
 def drawCharacter():
     global x, y
-    rh.drawImg(Assets.character, (x, y), (200, 150))
+    rh.drawImg(Assets.character, (x, y), (400, 300))
     if Input.getKey(pygame.K_w):
         y -= 3
     if Input.getKey(pygame.K_s):
