@@ -24,6 +24,7 @@ jerry = Character("Jerry")
 imaginaryFriend = Character("ImaginaryFriend")
 vanGuy = Character("VanGuy")
 spiderman = Character("Spiderman")
+alien = Character("Alien")
 
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")
