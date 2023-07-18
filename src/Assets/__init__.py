@@ -15,11 +15,13 @@ class Character:
 
 # characters
 main = Character("Main")
-# zach = Character("Zach")
+zach = Character("Zach")
 anime = Character("Anime")
 matthew = Character("Matthew")
 alex = Character("Alex")
 duy = Character("Duy")
+jerry = Character("Jerry")
+imaginaryFriend = Character("ImaginaryFriend")
 spiderman = Character("Spiderman")
 
 # backgrounds

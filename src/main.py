@@ -7,9 +7,7 @@ import renderHelper as rh
 FPS = 60
 
 rh.init("Epic Game 🐸", Assets.icon)
-scenes.dorm.start()
 
-hue = 0
 running = True
 while running:  # start game loop
     startMillis: int = pg.time.get_ticks()  # time at start
@@ -18,10 +16,8 @@ while running:  # start game loop
     if Input.stop: running = False
 
     c = pg.Color(0, 0, 0, 0)
-    c.hsva = (hue % 360, 100, 100, 100)  # background color
+    c.hsva = (pg.time.get_ticks() // 100 % 360, 100, 100, 100)  # background color
     rh.screen.fill(c)
-
-    hue += 1  # important
 
     scenes.currentScene.update()
     scenes.currentScene.render()

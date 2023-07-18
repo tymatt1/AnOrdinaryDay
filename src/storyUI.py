@@ -27,8 +27,8 @@ class TextBox(Element):
 
 
 class Decision(Element):
-    def __init__(self, *choices, statics: StaticsList = None):
-        super().__init__(statics)
+    def __init__(self, *choices: tuple, staticsTemp: StaticsList):
+        super().__init__(staticsTemp)
         self.choices = choices
 
 
