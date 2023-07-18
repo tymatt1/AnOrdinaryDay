@@ -18,10 +18,17 @@ wakeAt8 = Scene(dine, Assets.bedroom,
                 Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 1))
 
 
+wakeRoommate = Scene(None, Assets.matthew.stillRight,
+                     Decision(
+                         ('Wake Up Your Roommate', Scene(None, Assets.anime.stillLeft, TextBox("You woke up your rooommate"))),
+                         ("Don't wake up your roommate", Scene(None, Assets.duy.stillLeft, TextBox("You Roomate remains asleep"))),
+                         staticsTemp=StaticsList()
+                     ))
+
 brushTeeth = Scene(None, Assets.matthew.stillRight,
                    Decision(
-                       ("Brush teeth", Scene(None, Assets.anime.stillLeft, TextBox("You brushed and have good breath"))),
-                       ("Don't brush teeth", Scene(None, Assets.duy.stillLeft, TextBox("You didn't brush and have bad breath"))),
+                       ("Brush teeth", Scene(wakeRoommate, Assets.anime.stillLeft, TextBox("You brushed and have good breath"))),
+                       ("Don't brush teeth", Scene(wakeRoommate, Assets.duy.stillLeft, TextBox("You didn't brush and have bad breath"))),
                        staticsTemp = StaticsList()
                    ))
 
