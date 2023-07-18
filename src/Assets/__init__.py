@@ -1,10 +1,10 @@
-import pygame as pg
 import os
+import string
+import pygame as pg
 
 
 path = os.path.dirname(os.path.abspath(__file__))  # need to add the path or it won't run when double clicked
-
-def load(name) -> pg.Surface:
+def load(name: string) -> pg.Surface:
     return pg.image.load(f"{path}/{name}.png")
 
 

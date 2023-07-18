@@ -10,5 +10,5 @@ def handle():
             global stop
             stop = True
 
-def getKey(key: int):
+def getKey(key: int) -> bool:
     return pg.key.get_pressed()[key]
