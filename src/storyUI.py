@@ -4,7 +4,6 @@ import Input
 import renderHelper as rh
 from GameMath import LerpTuple
 import scenes
-from main import FPS
 
 
 class Element:
@@ -25,7 +24,7 @@ class Decision(Element):
 
 
 class Character(Element):
-    def __init__(self, movImg: pg.Surface, dims: tuple[float, float], start: tuple, end: tuple, duration: int, *imgs: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
+    def __init__(self, movImg: pg.Surface, dims: tuple[float, float], start: tuple, end: tuple, duration: float, *imgs: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
         """
         :param movImg: The image from the Assets package to be lerped
         :param start: The start of the lerpation
@@ -68,7 +67,7 @@ class Scene:
                 if Input.getKey(i + 49): elem.choices[i][1].start()
 
         if type(elem) is Character:
-            elem.current += 1000 / FPS
+            elem.current += 1000 / 60
             if elem.current > elem.duration:
                 if self.index + 1 < len(self.elements): self.index += 1
                 elif self.nextScene is not None: self.nextScene.start()
@@ -97,5 +96,5 @@ class Scene:
         if type(elem) is Character:
             rh.drawImg(elem.movImg, LerpTuple(elem.start, elem.end, elem.current / elem.duration), elem.dims)
             imgs = elem.imgs
-            for i in range(imgs):
+            for i in range(len(imgs)):
                 rh.drawImg(imgs[i][0], imgs[i][1], imgs[i][2])
