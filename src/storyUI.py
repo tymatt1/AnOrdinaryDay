@@ -13,6 +13,9 @@ attributes = {}
 
 class StaticsList:
     def __init__(self, *statics: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
+        """
+        :param statics: Tuples of (<image from Assets>, <position tuple>, <dimensions tuple>)
+        """
         self.statics = statics
 
     def renderStatics(self):
@@ -48,7 +51,7 @@ class Character(Element):
         :param start: The start of the lerptation
         :param end: The end of the lerpationification
         :param duration: The time for the lerpididilydo
-        :param statics: A tuple of tuples with the image and position of static images
+        :param statics: Static images present for the movement
         """
         super().__init__(statics)
         self.movImg = movImg
@@ -82,7 +85,7 @@ class Scene:
         """
         :param nextScene: The scene that comes after this one finishes, use None if it ends in a Decision
         :param background: The surface that will be used as the background
-        :param statics: The static images that will be present for the whole scene
+        :param statics: Static images present for the whole scene
         :param elements: The elements to be iterated over during the scene
         """
         self.nextScene = nextScene
