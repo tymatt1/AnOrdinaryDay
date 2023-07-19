@@ -29,9 +29,15 @@ alien = Character("Alien")
 # backgrounds
 diningHall = load("backgrounds/diningHall/dininghall")
 bedroom = load("backgrounds/bedroom")
+road = load("backgrounds/Road")
 sixFlags = load("backgrounds/Six Flags")
 classroom = load("backgrounds/classroom")
 vanFight = load("backgrounds/VanFight")
+ufo = load("backgrounds/UFO")
+ufoWithAlien = load("backgrounds/UFO with Alien")
+newUFO = load("backgrounds/New UFO")
+gameOver = load("backgrounds/Game Over")
+poopDeath = load("backgrounds/PoopDeath")
 
 # misc
 icon = load("misc/icon")

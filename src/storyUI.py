@@ -1,9 +1,14 @@
 import string
+from typing import Any
+
 import pygame as pg
 import Input
 import renderHelper as rh
 from GameMath import *
 import scenes
+
+
+attributes = {}
 
 
 class StaticsList:
@@ -27,8 +32,12 @@ class TextBox(Element):
 
 
 class Decision(Element):
-    def __init__(self, *choices: tuple, staticsTemp: StaticsList):
-        super().__init__(staticsTemp)
+    def __init__(self, *choices: tuple[string, tuple, Any], statics: StaticsList = None):
+        """
+        :param choices: Tuples of (<choice name>, (<attribute name>, <attribute value>), <resulting scene>)
+        :param statics: Static images present for the Decision
+        """
+        super().__init__(statics)
         self.choices = choices
 
 
@@ -50,15 +59,30 @@ class Character(Element):
         self.current = 0
 
 
-class QuickTime(Element):
-    def __init__(self, statics):
-        super().__init__(statics)
+# class QuickTime(Element):
+#     def __init__(self, statics):
+#         super().__init__(statics)
+
+
+class AttributeCheck(Element):
+    def __init__(self, check: tuple[string, string], positiveScene, negativeScene):
+        super().__init__(StaticsList())
+        self.check = check
+        self.positiveScene = positiveScene
+        self.negativeScene = negativeScene
 
 
 class Scene:
-    def __init__(self, nextScene, background: pg.Surface, *elements: Element):
+    def __init__(self, nextScene, background: pg.Surface, statics: StaticsList, *elements: Element):
+        """
+        :param nextScene: The scene that comes after this one finishes, use None if it ends in a Decision
+        :param background: The surface that will be used as the background
+        :param statics: The static images that will be present for the whole scene
+        :param elements: The elements to be iterated over during the scene
+        """
         self.nextScene = nextScene
         self.background = background
+        self.statics = statics
         self.elements = elements
         self.index = 0
 
@@ -75,9 +99,13 @@ class Scene:
             if self.index + 1 < len(self.elements): self.index += 1
 
             elif self.nextScene is not None: self.nextScene.start()
+
         if type(elem) is Decision:
             for i in range(len(elem.choices)):
-                if Input.getKey(i + 49): elem.choices[i][1].start()
+                if Input.getKey(i + 49):
+                    if len(elem.choices[i][1]) == 2:
+                        attributes.update({str(elem.choices[i][1][0]): str(elem.choices[i][1][1])})
+                    elem.choices[i][2].start()
 
         if type(elem) is Character:
             elem.current += 1000 / 60
@@ -85,10 +113,19 @@ class Scene:
                 if self.index + 1 < len(self.elements): self.index += 1
                 elif self.nextScene is not None: self.nextScene.start()
 
+        if type(elem) is AttributeCheck:
+            check = elem.check
+            if check[0] in attributes.keys():
+                if attributes.get(check[0]) is check[1]:
+                    elem.positiveScene.start()
+                else: elem.negativeScene.start()
+            else: elem.negativeScene.start()
+
     def render(self):
         rh.drawImg(self.background, (-1, -1), (-1, -1))
         elem = self.elements[self.index]
         if elem.statics is not None: elem.statics.renderStatics()
+        self.statics.renderStatics()
 
         boxHeight = 200
 

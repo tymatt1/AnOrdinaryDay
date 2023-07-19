@@ -2,50 +2,55 @@ from storyUI import *
 import Assets
 
 
-dine = Scene(None, Assets.diningHall,
-              TextBox("wow theres food here aaaaaa"),
+badStomach = Scene(None, Assets.diningHall, StaticsList(),
+              TextBox("Your Stomach Doesn't Feel So Good"),
               Decision(
-                  ("commit a crime", Scene(None, Assets.testImg, TextBox("jail"))),
-                  ("consume a bagel",
-                   Scene(Scene(None, Assets.icon, TextBox("execution")), Assets.testImg, TextBox("jail"))),
-                  staticsTemp = StaticsList()
+                  ("Go to the bathroom", (), Scene(None, Assets.road, StaticsList(), TextBox("Much better, time to go to class"))),
+                  ("Go to class", (), Scene(None, Assets.poopDeath, StaticsList(), TextBox("You Pooped your pants"))),
               ))
 
 
-wakeAt8 = Scene(dine, Assets.bedroom,
+dine = Scene(None, Assets.diningHall, StaticsList(),
+              TextBox("What do you want to eat"),
+              Decision(
+                  ("Cereal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Pancakes", (), (None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Oatmeal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Eggs and Sausage", (), Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
+              ))
+# new branch example
+
+wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
                 TextBox("You wake up feeling energized"),
                 TextBox("Oh my turtles!\nIt's 8:15 am!"),
                 Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 1))
 
 
-wakeRoommate = Scene(None, Assets.matthew.stillRight,
+wakeRoommate = Scene(None, Assets.matthew.stillRight, StaticsList(),
                      Decision(
-                         ('Wake Up Your Roommate', Scene(None, Assets.anime.stillLeft, TextBox("You woke up your rooommate"))),
-                         ("Don't wake up your roommate", Scene(None, Assets.duy.stillLeft, TextBox("You Roomate remains asleep"))),
-                         staticsTemp=StaticsList()
+                         ('Wake Up Your Roommate', (), Scene(None, Assets.anime.stillLeft, StaticsList(), TextBox("You woke up your rooommate"))),
+                         ("Don't wake up your roommate", (), Scene(None, Assets.duy.stillLeft, StaticsList(), TextBox("You Roomate remains asleep"))),
                      ))
 
-brushTeeth = Scene(None, Assets.matthew.stillRight,
+brushTeeth = Scene(None, Assets.matthew.stillRight, StaticsList(),
                    Decision(
-                       ("Brush teeth", Scene(wakeRoommate, Assets.anime.stillLeft, TextBox("You brushed and have good breath"))),
-                       ("Don't brush teeth", Scene(wakeRoommate, Assets.duy.stillLeft, TextBox("You didn't brush and have bad breath"))),
-                       staticsTemp = StaticsList()
+                       ("Brush teeth", ("breath", "good"), Scene(wakeRoommate, Assets.anime.stillLeft, StaticsList(), TextBox("You brushed and have good breath"))),
+                       ("Don't brush teeth", ("breath", "bad"), Scene(wakeRoommate, Assets.duy.stillLeft, StaticsList(), TextBox("You didn't brush and have bad breath"))),
                    ))
 
 
-wakeAt9 = Scene(None, Assets.bedroom,
+wakeAt9 = Scene(None, Assets.bedroom, StaticsList(),
                 TextBox("You wake up feeling super energized."),
                 TextBox("Diddly darn fiddlesticks!\nIt's 9:00 am!"),
                 Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 1))
 
 
-dorm = Scene(None, Assets.bedroom,
+dorm = Scene(None, Assets.bedroom, StaticsList(),
              TextBox("You wake up to the sound of your alarm.\nIt is 7:30 am."),
              Decision(
-                 ("Get ready", Scene(brushTeeth, Assets.bedroom, TextBox("Getting ready"), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
-                 ("Go back to sleep", Scene(wakeAt9, Assets.bedroom, TextBox("Sleeping"))),
-                 ("Snooze alarm", Scene(wakeAt8, Assets.bedroom, TextBox("Sleeping"))),
-                 staticsTemp = StaticsList()
+                 ("Get ready", (), Scene(brushTeeth, Assets.bedroom, StaticsList(), TextBox("Getting ready"), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
+                 ("Go back to sleep", (), Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
+                 ("Snooze alarm", (), Scene(wakeAt8, Assets.bedroom, StaticsList(), TextBox("Sleeping")))
              )
              )
 
