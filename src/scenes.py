@@ -5,20 +5,18 @@ import Assets
 badStomach = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("Your Stomach Doesn't Feel So Good"),
               Decision(
-                  ("Go to the bathroom", Scene(None, Assets.road, StaticsList(), TextBox("Much better, time to go to class"))),
-                  ("Go to class",Scene(None, Assets.poopDeath, StaticsList(), TextBox("You Pooped your pants"))),
-                  staticsTemp = StaticsList()
+                  ("Go to the bathroom", (), Scene(None, Assets.road, StaticsList(), TextBox("Much better, time to go to class"))),
+                  ("Go to class", (), Scene(None, Assets.poopDeath, StaticsList(), TextBox("You Pooped your pants"))),
               ))
 
 
 dine = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("What do you want to eat"),
               Decision(
-                  ("Cereal", Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Pancakes",Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Oatmeal",Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Eggs and Sausage",Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
-                  staticsTemp = StaticsList()
+                  ("Cereal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Pancakes", (), (None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Oatmeal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Eggs and Sausage", (), Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
               ))
 
 
