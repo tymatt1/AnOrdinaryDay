@@ -33,7 +33,7 @@ jumpIntoVan = Scene(None, Assets.chaseVan, StaticsList(),
                     AttributeCheck(("energy", "some"), Scene(None, Assets.vanDeath, StaticsList(),
                                                              TextBox("You manage to jump into the van, but you are exhausted.\nThe van people beat you and throw you out the back."))),
                     AttributeCheck(("energy", "very"), Scene(None, Assets.savedFriend, StaticsList(),
-                                                             TextBox("Since you slept in, you have lots of energy.\nYou jump into the van and easily defeat the van people.\nYou save your friend and become internet famous\nbecause someone was recording."))))
+                                                             TextBox("Since you slept in, you have lots of energy.\nYou jump into the van and easily defeat the van people.\nYou save your friend and you become internet famous\nbecause someone was recording."))))
 
 loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList(), TextBox("You missed the chance to save your friend. You live the rest of\nyour life with the agony and guilt,\nknowing they trusted you and you failed them."))
 friendKidnapped = Scene(loseFriendCry, Assets.kidnapping, StaticsList(),
