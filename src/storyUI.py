@@ -8,6 +8,9 @@ from GameMath import *
 import scenes
 
 
+attributes = {}
+
+
 class StaticsList:
     def __init__(self, *statics: tuple[pg.Surface, tuple[float, float], tuple[float, float]]):
         self.statics = statics
@@ -79,6 +82,7 @@ class Scene:
         scenes.currentScene = self
 
     def update(self):
+        print(attributes)
         elem = self.elements[self.index]
 
         if not Input.getKey(pg.K_SPACE): Input.allowSpace = True
@@ -90,7 +94,10 @@ class Scene:
             elif self.nextScene is not None: self.nextScene.start()
         if type(elem) is Decision:
             for i in range(len(elem.choices)):
-                if Input.getKey(i + 49): elem.choices[i][2].start()
+                if Input.getKey(i + 49):
+                    if len(elem.choices[i][1]) == 2:
+                        attributes.update({str(elem.choices[i][1][0]): str(elem.choices[i][1][1])})
+                    elem.choices[i][2].start()
 
         if type(elem) is Character:
             elem.current += 1000 / 60
