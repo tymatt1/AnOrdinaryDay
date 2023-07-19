@@ -18,7 +18,7 @@ dine = Scene(None, Assets.diningHall, StaticsList(),
                   ("Oatmeal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
                   ("Eggs and Sausage", (), Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
               ))
-
+# new branch example
 
 wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
                 TextBox("You wake up feeling energized"),
