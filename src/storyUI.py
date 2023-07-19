@@ -66,6 +66,11 @@ class Character(Element):
 
 class AttributeCheck(Element):
     def __init__(self, check: tuple[string, string], positiveScene, negativeScene):
+        """
+        :param check: A tuple of (key, value). If key == value, positiveScene is run, and if not, negativeScene is
+        :param positiveScene: The scene to be run if key == value
+        :param negativeScene: The scene to be run if key != value or key is not present in the attributes
+        """
         super().__init__(StaticsList())
         self.check = check
         self.positiveScene = positiveScene
