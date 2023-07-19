@@ -71,5 +71,10 @@ def drawText(text: string, fontSize: int, pos: tuple, color: tuple[int, int, int
     screen.blit(text, textRect)
 
 
+def renderBackground():
+    c = pg.Color(0, 0, 0, 0)
+    c.hsva = (pg.time.get_ticks() // 15 % 360, 100, 100, 100)  # background color
+    screen.fill(c)
+
 def render():
     pg.display.flip()
