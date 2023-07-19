@@ -64,16 +64,14 @@ class Character(Element):
 
 
 class AttributeCheck(Element):
-    def __init__(self, check: tuple[string, string], positiveScene, negativeScene):
+    def __init__(self, check: tuple[string, string], positiveScene):
         """
         :param check: A tuple of (key, value). If key == value, positiveScene is run, and if not, negativeScene is
         :param positiveScene: The scene to be run if key == value
-        :param negativeScene: The scene to be run if key != value or key is not present in the attributes
         """
         super().__init__(StaticsList())
         self.check = check
         self.positiveScene = positiveScene
-        self.negativeScene = negativeScene
 
 
 class RNGScene(Element):
@@ -146,8 +144,9 @@ class Scene:
             if check[0] in attributes.keys():
                 if attributes.get(check[0]) is check[1]:
                     elem.positiveScene.start()
-                else: elem.negativeScene.start()
-            else: elem.negativeScene.start()
+                    return
+            if self.index + 1 < len(self.elements): self.index += 1
+            elif self.nextScene is not None: self.nextScene.start()
 
         if type(elem) is RNGScene:
             elem.nextScene.start()
@@ -168,7 +167,7 @@ class Scene:
         if elem.statics is not None: elem.statics.renderStatics()
         self.statics.renderStatics()
 
-        boxHeight = 200
+        boxHeight = 150
 
         if type(elem) is TextBox:
             rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))

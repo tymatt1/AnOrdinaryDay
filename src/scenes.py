@@ -1,5 +1,5 @@
 from storyUI import *
-import morescenes
+import moreScenes
 import Assets
 
 
@@ -14,9 +14,9 @@ badStomach = Scene(None, Assets.diningHall, StaticsList(),
 dine = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("What do you want to eat"),
               Decision(
-                  ("Cereal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Pancakes", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Oatmeal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Cereal", ("jerry", "true"), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Pancakes", ("matthew", "true"), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Oatmeal", ("duy", "true"), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
                   ("Eggs and Sausage", (), Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
               ))
 # new branch example
