@@ -39,6 +39,7 @@ newUFO = load("backgrounds/New UFO")
 gameOver = load("backgrounds/Game Over")
 road = load("backgrounds/Road")
 poopDeath = load("backgrounds/PoopDeath")
+bathroom = load("backgrounds/Bathroom")
 
 # misc
 icon = load("misc/icon")

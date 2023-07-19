@@ -3,7 +3,7 @@ import morescenes
 import Assets
 
 
-badStomach = Scene(None, Assets.diningHall, StaticsList(),
+badStomach = Scene(None, Assets.bathroom, StaticsList(),
               TextBox("Your stomach doesn't feel so good..."),
               Decision(
                   ("Go to the bathroom", (), Scene(None, Assets.road, StaticsList(), TextBox("Much better, time to go to class"))),
@@ -17,7 +17,7 @@ dine = Scene(None, Assets.diningHall, StaticsList(),
                   ("Cereal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
                   ("Pancakes", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
                   ("Oatmeal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Eggs and Sausage", (), Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
+                  ("Eggs and Sausage", (), Scene(badStomach, Assets.diningHall, StaticsList(), TextBox("Uh Oh"))),
               ))
 # new branch example
 
