@@ -2,11 +2,23 @@ from storyUI import *
 import Assets
 
 
-dine = Scene(None, Assets.diningHall, StaticsList(),
-              TextBox("wow theres food here aaaaaa"),
+badStomach = Scene(None, Assets.diningHall, StaticsList(),
+              TextBox("Your Stomach Doesn't Feel So Good"),
               Decision(
-                  ("commit a crime", (), Scene(None, Assets.testImg, StaticsList(), TextBox("jail"))),
-                  ("consume a bagel", (), Scene(Scene(None, Assets.icon, StaticsList(), TextBox("execution")), Assets.testImg, StaticsList(), TextBox("jail")))
+                  ("Go to the bathroom", Scene(None, Assets.road, StaticsList(), TextBox("Much better, time to go to class"))),
+                  ("Go to class",Scene(None, Assets.poopDeath, StaticsList(), TextBox("You Pooped your pants"))),
+                  staticsTemp = StaticsList()
+              ))
+
+
+dine = Scene(None, Assets.diningHall, StaticsList(),
+              TextBox("What do you want to eat"),
+              Decision(
+                  ("Cereal", Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Pancakes",Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Oatmeal",Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Eggs and Sausage",Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
+                  staticsTemp = StaticsList()
               ))
 
 
