@@ -4,7 +4,7 @@ import Assets
 
 
 alienLose = Scene(None, Assets.gameOver, StaticsList((Assets.sus, (1165, -5), (20, 50))), TextBox("The aliens were dissapointed that you got it wrong and evaporated you"))
-alienWin = Scene(None, Assets.gameOver, StaticsList((Assets.sus, (1165, -5), (20, 50))), TextBox("The aliens were so overjoyed by your intellect and let you go home.\nYou are now a celebrity on Earth."))
+alienWin = Scene(None, Assets.famous, StaticsList((Assets.sus, (1165, -5), (20, 50))), TextBox("The aliens were so overjoyed by your intellect and let you go home.\nYou are now a celebrity on Earth."))
 
 alienQuiz = Scene(None, Assets.ufoWithAlien, StaticsList((Assets.sus, (1150, 0), (50, 20))),
                   TextBox("HELLO\nI am Xorp, this is Zzxoxzjozfoozp, and this is Terry"),
