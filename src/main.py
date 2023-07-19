@@ -15,14 +15,11 @@ while running:  # start game loop
     Input.handle()
     if Input.stop: running = False
 
-    c = pg.Color(0, 0, 0, 0)
-    c.hsva = (pg.time.get_ticks() // 100 % 360, 100, 100, 100)  # background color
-    rh.screen.fill(c)
-
+    rh.renderBackground()
     scenes.currentScene.update()
     scenes.currentScene.render()
 
-    rh.render()  # maybe delete later???
+    rh.render()
     pg.time.wait(int(1000 / FPS) - (pg.time.get_ticks() - startMillis))  # do math to fps limit the game
 
 pg.quit()
