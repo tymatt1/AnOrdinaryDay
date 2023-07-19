@@ -40,7 +40,7 @@ brushTeeth = Scene(None, Assets.matthew.stillRight, StaticsList(),
                    ))
 
 
-wakeAt9 = Scene(None, Assets.bedroom, StaticsList(),
+wakeAt9 = Scene(dine, Assets.bedroom, StaticsList(),
                 TextBox("You wake up feeling super energized."),
                 TextBox("Diddly darn fiddlesticks!\nIt's 9:00 am!"),
                 Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 1))
