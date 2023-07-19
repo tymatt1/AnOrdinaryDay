@@ -182,11 +182,11 @@ class Scene:
                 x = (rh.width() / (count + 1)) * (i + 1)
                 # rh.drawRect((x - boxWidth / 2, rh.height() - boxHeight), (boxWidth, boxHeight), (0, 0, 10, 200))
                 # rh.drawText(str(i + 1) + ":", 16, (x, rh.height() - (boxHeight - 16)))
-                rh.drawText(str(i + 1) + ":\n\n" + elem.choices[i][0], 32, (x, rh.height() - (boxHeight / 2)))
+                rh.drawText("Press " + str(i + 1) + ":\n\n" + elem.choices[i][0], 32, (x, rh.height() - (boxHeight / 2)))
 
         if type(elem) is Character:
             rh.drawImg(elem.movImg, LerpTuple(elem.start, elem.end, elem.current / elem.duration), elem.dims)
 
         if type(elem) is QuickTimeEvent:
             rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))
-            rh.drawText("1:\n\n" + elem.text, 32, (rh.width() / 2, rh.height() - (boxHeight / 2)))
+            rh.drawText("Press 1:\n\n" + elem.text, 32, (rh.width() / 2, rh.height() - (boxHeight / 2)))
