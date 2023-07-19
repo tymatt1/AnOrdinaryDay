@@ -1,5 +1,5 @@
 from storyUI import *
-import morescenes
+import moreScenes
 import Assets
 
 
@@ -14,9 +14,9 @@ badStomach = Scene(None, Assets.diningHall, StaticsList(),
 dine = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("What do you want to eat"),
               Decision(
-                  ("Cereal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Pancakes", (), (None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Oatmeal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Cereal", ("jerry", "true"), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Pancakes", ("matthew", "true"), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Oatmeal", ("duy", "true"), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
                   ("Eggs and Sausage", (), Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
               ))
 # new branch example
@@ -29,8 +29,8 @@ wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
 
 wakeRoommate = Scene(None, Assets.matthew.stillRight, StaticsList(),
                      Decision(
-                         ('Wake Up Your Roommate', (), Scene(None, Assets.anime.stillLeft, StaticsList(), TextBox("You woke up your rooommate"))),
-                         ("Don't wake up your roommate", (), Scene(None, Assets.duy.stillLeft, StaticsList(), TextBox("You Roomate remains asleep"))),
+                         ('Wake Up Your Roommate', (), Scene(dine, Assets.anime.stillLeft, StaticsList(), TextBox("You woke up your rooommate"))),
+                         ("Don't wake up your roommate", (), Scene(dine, Assets.duy.stillLeft, StaticsList(), TextBox("You Roomate remains asleep"))),
                      ))
 
 brushTeeth = Scene(None, Assets.matthew.stillRight, StaticsList(),
@@ -40,7 +40,7 @@ brushTeeth = Scene(None, Assets.matthew.stillRight, StaticsList(),
                    ))
 
 
-wakeAt9 = Scene(None, Assets.bedroom, StaticsList(),
+wakeAt9 = Scene(dine, Assets.bedroom, StaticsList(),
                 TextBox("You wake up feeling super energized."),
                 TextBox("Diddly darn fiddlesticks!\nIt's 9:00 am!"),
                 Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 1))
@@ -50,7 +50,7 @@ dorm = Scene(None, Assets.bedroom, StaticsList(),
              TextBox("You wake up to the sound of your alarm.\nIt is 7:30 am."),
              Decision(
                  ("Get ready", (), Scene(brushTeeth, Assets.bedroom, StaticsList(), TextBox("Getting ready"), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
-                 ("Go back to sleep", (), Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
+                 ("Go back to sleep", ("energy", "lots"), Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
                  ("Snooze alarm", (), Scene(wakeAt8, Assets.bedroom, StaticsList(), TextBox("Sleeping")))
              )
              )
