@@ -1,5 +1,6 @@
 import string
 from typing import Any
+import random
 
 import pygame as pg
 import Input
@@ -62,22 +63,39 @@ class Character(Element):
         self.current = 0
 
 
-# class QuickTime(Element):
-#     def __init__(self, statics):
-#         super().__init__(statics)
-
-
 class AttributeCheck(Element):
-    def __init__(self, check: tuple[string, string], positiveScene, negativeScene):
+    def __init__(self, check: tuple[string, string], positiveScene):
         """
         :param check: A tuple of (key, value). If key == value, positiveScene is run, and if not, negativeScene is
         :param positiveScene: The scene to be run if key == value
-        :param negativeScene: The scene to be run if key != value or key is not present in the attributes
         """
         super().__init__(StaticsList())
         self.check = check
         self.positiveScene = positiveScene
-        self.negativeScene = negativeScene
+
+
+class RNGScene(Element):
+    def __init__(self, *randomScenes):
+        """
+        :param scenes: A list of the potential scenes
+        """
+        super().__init__(StaticsList())
+        self.nextScene = random.choice(randomScenes)
+
+
+class QuickTimeEvent(Element):
+    def __init__(self, text: string, duration: float, positiveScene, statics: StaticsList = None):
+        """
+        :param text: The text to be displayed during the QTE
+        :param duration: The duration of the QTE
+        :param positiveScene: If the QTE is successful, this scene will be run
+        :param statics: Static images present during the QTE
+        """
+        super().__init__(statics)
+        self.text = text
+        self.duration = duration * 1000
+        self.current = 0
+        self.positiveScene = positiveScene
 
 
 class Scene:
@@ -126,8 +144,22 @@ class Scene:
             if check[0] in attributes.keys():
                 if attributes.get(check[0]) is check[1]:
                     elem.positiveScene.start()
-                else: elem.negativeScene.start()
-            else: elem.negativeScene.start()
+                    return
+            if self.index + 1 < len(self.elements): self.index += 1
+            elif self.nextScene is not None: self.nextScene.start()
+
+        if type(elem) is RNGScene:
+            elem.nextScene.start()
+
+        if type(elem) is QuickTimeEvent:
+            elem.current += 1000 / 60
+            if Input.getKey(1 + 48):
+                elem.positiveScene.start()
+                return
+            if elem.current > elem.duration:
+                if self.index + 1 < len(self.elements): self.index += 1
+                elif self.nextScene is not None: self.nextScene.start()
+
 
     def render(self):
         rh.drawImg(self.background, (-1, -1), (-1, -1))
@@ -135,7 +167,7 @@ class Scene:
         if elem.statics is not None: elem.statics.renderStatics()
         self.statics.renderStatics()
 
-        boxHeight = 200
+        boxHeight = 150
 
         if type(elem) is TextBox:
             rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))
@@ -145,12 +177,16 @@ class Scene:
             rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))
 
             count = len(elem.choices)
-            boxWidth = rh.width() / (count + 2)
+            # boxWidth = rh.width() / (count + 2)
             for i in range(count):
                 x = (rh.width() / (count + 1)) * (i + 1)
-                rh.drawRect((x - boxWidth / 2, rh.height() - boxHeight), (boxWidth, boxHeight), (0, 0, 10, 200))
-                rh.drawText(str(i + 1), 16, (x, rh.height() - (boxHeight - 16)))
-                rh.drawText(elem.choices[i][0], 16, (x, rh.height() - (boxHeight / 2)))
+                # rh.drawRect((x - boxWidth / 2, rh.height() - boxHeight), (boxWidth, boxHeight), (0, 0, 10, 200))
+                # rh.drawText(str(i + 1) + ":", 16, (x, rh.height() - (boxHeight - 16)))
+                rh.drawText(str(i + 1) + ":\n\n" + elem.choices[i][0], 16, (x, rh.height() - (boxHeight / 2)))
 
         if type(elem) is Character:
             rh.drawImg(elem.movImg, LerpTuple(elem.start, elem.end, elem.current / elem.duration), elem.dims)
+
+        if type(elem) is QuickTimeEvent:
+            rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))
+            rh.drawText("1:\n\n" + elem.text, 16, (rh.width() / 2, rh.height() - (boxHeight / 2)))
