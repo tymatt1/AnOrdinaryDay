@@ -56,9 +56,10 @@ class QuickTime(Element):
 
 
 class Scene:
-    def __init__(self, nextScene, background: pg.Surface, *elements: Element):
+    def __init__(self, nextScene, background: pg.Surface, statics: StaticsList, *elements: Element):
         self.nextScene = nextScene
         self.background = background
+        self.statics = statics
         self.elements = elements
         self.index = 0
 
@@ -89,6 +90,7 @@ class Scene:
         rh.drawImg(self.background, (-1, -1), (-1, -1))
         elem = self.elements[self.index]
         if elem.statics is not None: elem.statics.renderStatics()
+        self.statics.renderStatics()
 
         boxHeight = 200
 
