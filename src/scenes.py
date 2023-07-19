@@ -4,7 +4,7 @@ import Assets
 
 
 badStomach = Scene(None, Assets.diningHall, StaticsList(),
-              TextBox("Your Stomach Doesn't Feel So Good"),
+              TextBox("Your stomach doesn't feel so good..."),
               Decision(
                   ("Go to the bathroom", (), Scene(None, Assets.road, StaticsList(), TextBox("Much better, time to go to class"))),
                   ("Go to class", (), Scene(None, Assets.poopDeath, StaticsList(), TextBox("You Pooped your pants"))),
