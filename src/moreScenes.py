@@ -1,5 +1,4 @@
-from storyUI import *
-from scenes import *
+from evenMoreScenes import *
 import Assets
 
 
@@ -18,12 +17,6 @@ alienQuiz = Scene(None, Assets.ufoWithAlien, StaticsList((Assets.sus, (1150, 0),
                       ("π", (), alienLose),
                       ("10", (), alienLose)
                   ))
-
-
-
-
-goToClass = None
-
 
 
 
