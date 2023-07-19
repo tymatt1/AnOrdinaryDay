@@ -40,14 +40,14 @@ brushTeeth = Scene(None, Assets.bathroom, StaticsList(),
                    ))
 
 
-wakeAt9 = Scene(dine, Assets.bedroom, StaticsList(),
+wakeAt9 = Scene(walkToClass, Assets.bedroom, StaticsList(),
                 TextBox("You wake up feeling super energized."),
                 TextBox("Diddly darn fiddlesticks!\nIt's 9:00 am!"),
                 Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 1))
 
 
 dorm = Scene(None, Assets.bedroom, StaticsList(),
-             TextBox("You wake up to the sound of your alarm.\nIt is 7:30 am."),
+             TextBox("You wake up to your alarm.\nIt is 7:30 am."),
              Decision(
                  ("Get ready", ("energy", "none"), Scene(brushTeeth, Assets.bedroom, StaticsList(), TextBox("Getting ready"), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
                  ("Go back to sleep", ("energy", "very"), Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
@@ -58,4 +58,4 @@ dorm = Scene(None, Assets.bedroom, StaticsList(),
 
 
 
-currentScene = friendKidnapped  # make this equal to the first scene
+currentScene = dorm  # make this equal to the first scene

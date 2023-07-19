@@ -27,10 +27,16 @@ goToClass = None
 
 
 
-jumpIntoVan = None
+jumpIntoVan = Scene(None, Assets.chaseVan, StaticsList(),
+                    AttributeCheck(("energy", "none"), Scene(None, Assets.vanDeath, StaticsList(),
+                                                             TextBox("You bend your knees and jump as hard as you can.\nYou miss the van and fall onto the concrete.\nMaybe you should have slept in."))),
+                    AttributeCheck(("energy", "some"), Scene(None, Assets.vanDeath, StaticsList(),
+                                                             TextBox("You manage to jump into the van, but you are exhausted.\nThe van people beat you and throw you out the back."))),
+                    AttributeCheck(("energy", "very"), Scene(None, Assets.savedFriend, StaticsList(),
+                                                             TextBox("Since you slept in, you have lots of energy.\nYou jump into the van and easily defeat the van people.\nYou save your friend and become internet famous\nbecause someone was recording."))))
 
 loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList(), TextBox("You missed the chance to save your friend. You live the rest of\nyour life with the agony and guilt,\nknowing they trusted you and you failed them."))
-friendKidnapped = Scene(loseFriendCry, Assets.chaseVan, StaticsList(),
+friendKidnapped = Scene(loseFriendCry, Assets.kidnapping, StaticsList(),
                         TextBox("Oh no!\nYour friend was kidnapped by some guys in a nondescript white van!"),
                         TextBox("You decide to try to rescue them instead of going to class."),
                         QuickTimeEvent("The van is actually pretty slow.\nYou might be able to jump in!", 2.5, jumpIntoVan))
@@ -48,4 +54,4 @@ fallIntoDitch = Scene(None, Assets.ditchDeathHead, StaticsList(),
 walkToClass = Scene(None, Assets.roadCharacters, StaticsList(),
                        TextBox("You walk to class."),
                        TextBox("Suddenly..."),
-                       RNGScene(alienQuiz, friendKidnapped, fallIntoDitch))
+                       RNGScene(friendKidnapped))

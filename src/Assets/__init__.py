@@ -43,8 +43,10 @@ ditchDeathHead = load("backgrounds/Ditch Death From Hitting Head")
 ditchDeathMatthew = load("backgrounds/Ditch Death MC and Matthew")
 fireBuilding = load("backgrounds/bigfirebuilding")
 chaseVan = load("backgrounds/Chase White Van")
+kidnapping = load("backgrounds/Kidnapping")
 bathroom = load("backgrounds/Bathroom")
 vanDeath = load("backgrounds/Van Death")
+savedFriend = load("backgrounds/Saved Your Friend")
 
 # misc
 icon = load("misc/icon")
