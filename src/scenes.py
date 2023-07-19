@@ -15,7 +15,7 @@ dine = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("What do you want to eat"),
               Decision(
                   ("Cereal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
-                  ("Pancakes", (), (None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
+                  ("Pancakes", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
                   ("Oatmeal", (), Scene(None, Assets.road, StaticsList(), TextBox("Time to go to class"))),
                   ("Eggs and Sausage", (), Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
               ))
