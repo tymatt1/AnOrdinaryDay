@@ -50,7 +50,7 @@ dorm = Scene(None, Assets.bedroom, StaticsList(),
              TextBox("You wake up to the sound of your alarm.\nIt is 7:30 am."),
              Decision(
                  ("Get ready", (), Scene(brushTeeth, Assets.bedroom, StaticsList(), TextBox("Getting ready"), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
-                 ("Go back to sleep", (), Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
+                 ("Go back to sleep", ("energy", "lots"), Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
                  ("Snooze alarm", (), Scene(wakeAt8, Assets.bedroom, StaticsList(), TextBox("Sleeping")))
              )
              )
