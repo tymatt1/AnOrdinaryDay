@@ -6,7 +6,7 @@ import renderHelper as rh
 
 FPS = 60
 
-rh.init("Epic Game 🐸", Assets.icon)
+rh.init("An Ordinary Day", Assets.icon)
 
 running = True
 while running:  # start game loop

@@ -56,4 +56,4 @@ dorm = Scene(None, Assets.bedroom, StaticsList(),
 
 
 
-currentScene = dorm  # make this equal to the first scene
+currentScene = goToClass  # make this equal to the first scene

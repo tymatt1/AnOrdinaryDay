@@ -189,4 +189,4 @@ class Scene:
 
         if type(elem) is QuickTimeEvent:
             rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))
-            rh.drawText("Press 1:\n\n" + elem.text, 32, (rh.width() / 2, rh.height() - (boxHeight / 2)))
+            rh.drawText(f"Press 1:\nSeconds left: {((elem.duration - elem.current) / 1000):.2f}\n\n" + elem.text, 32, (rh.width() / 2, rh.height() - (boxHeight / 2)))
