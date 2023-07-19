@@ -17,7 +17,9 @@ sixFlags = Scene(None, Assets.sixFlags, StaticsList(),
                      ("Don't go on roller coaster", (), noCoaster)
                  ))
 
+
 terroristsEnter = None
+
 
 goToClass = Scene(terroristsEnter, Assets.classroom, StaticsList(),
                   TextBox("Finally, you make it to class barely on time."),
