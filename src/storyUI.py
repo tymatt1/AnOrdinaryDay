@@ -1,4 +1,6 @@
 import string
+from typing import Any
+
 import pygame as pg
 import Input
 import renderHelper as rh
@@ -27,8 +29,12 @@ class TextBox(Element):
 
 
 class Decision(Element):
-    def __init__(self, *choices: tuple, staticsTemp: StaticsList):
-        super().__init__(staticsTemp)
+    def __init__(self, *choices: tuple[string, tuple, Any], statics: StaticsList = None):
+        """
+        :param choices: Tuples of (<choice name>, (<attribute name>, <attribute value>), <resulting scene>)
+        :param statics: Static images present for the Decision
+        """
+        super().__init__(statics)
         self.choices = choices
 
 
@@ -84,7 +90,7 @@ class Scene:
             elif self.nextScene is not None: self.nextScene.start()
         if type(elem) is Decision:
             for i in range(len(elem.choices)):
-                if Input.getKey(i + 49): elem.choices[i][1].start()
+                if Input.getKey(i + 49): elem.choices[i][2].start()
 
         if type(elem) is Character:
             elem.current += 1000 / 60

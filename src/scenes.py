@@ -5,10 +5,8 @@ import Assets
 dine = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("wow theres food here aaaaaa"),
               Decision(
-                  ("commit a crime", Scene(None, Assets.testImg, StaticsList(), TextBox("jail"))),
-                  ("consume a bagel",
-                   Scene(None, Assets.icon, StaticsList(), TextBox("execution")), Assets.testImg, TextBox("jail")),
-                  staticsTemp = StaticsList()
+                  ("commit a crime", (), Scene(None, Assets.testImg, StaticsList(), TextBox("jail"))),
+                  ("consume a bagel", (), Scene(Scene(None, Assets.icon, StaticsList(), TextBox("execution")), Assets.testImg, StaticsList(), TextBox("jail")))
               ))
 
 
@@ -20,16 +18,14 @@ wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
 
 wakeRoommate = Scene(None, Assets.matthew.stillRight, StaticsList(),
                      Decision(
-                         ('Wake Up Your Roommate', Scene(None, Assets.anime.stillLeft, StaticsList(), TextBox("You woke up your rooommate"))),
-                         ("Don't wake up your roommate", Scene(None, Assets.duy.stillLeft, StaticsList(), TextBox("You Roomate remains asleep"))),
-                         staticsTemp = StaticsList()
+                         ('Wake Up Your Roommate', (), Scene(None, Assets.anime.stillLeft, StaticsList(), TextBox("You woke up your rooommate"))),
+                         ("Don't wake up your roommate", (), Scene(None, Assets.duy.stillLeft, StaticsList(), TextBox("You Roomate remains asleep"))),
                      ))
 
 brushTeeth = Scene(None, Assets.matthew.stillRight, StaticsList(),
                    Decision(
-                       ("Brush teeth", Scene(wakeRoommate, Assets.anime.stillLeft, StaticsList(), TextBox("You brushed and have good breath"))),
-                       ("Don't brush teeth", Scene(wakeRoommate, Assets.duy.stillLeft, StaticsList(), TextBox("You didn't brush and have bad breath"))),
-                       staticsTemp = StaticsList()
+                       ("Brush teeth", (), Scene(wakeRoommate, Assets.anime.stillLeft, StaticsList(), TextBox("You brushed and have good breath"))),
+                       ("Don't brush teeth", (), Scene(wakeRoommate, Assets.duy.stillLeft, StaticsList(), TextBox("You didn't brush and have bad breath"))),
                    ))
 
 
@@ -42,10 +38,9 @@ wakeAt9 = Scene(None, Assets.bedroom, StaticsList(),
 dorm = Scene(None, Assets.bedroom, StaticsList(),
              TextBox("You wake up to the sound of your alarm.\nIt is 7:30 am."),
              Decision(
-                 ("Get ready", Scene(brushTeeth, Assets.bedroom, StaticsList(), TextBox("Getting ready"), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
-                 ("Go back to sleep", Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
-                 ("Snooze alarm", Scene(wakeAt8, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
-                 staticsTemp = StaticsList()
+                 ("Get ready", (), Scene(brushTeeth, Assets.bedroom, StaticsList(), TextBox("Getting ready"), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
+                 ("Go back to sleep", (), Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("Sleeping"))),
+                 ("Snooze alarm", (), Scene(wakeAt8, Assets.bedroom, StaticsList(), TextBox("Sleeping")))
              )
              )
 
