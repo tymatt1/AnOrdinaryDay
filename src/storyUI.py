@@ -59,9 +59,17 @@ class Character(Element):
         self.current = 0
 
 
-class QuickTime(Element):
-    def __init__(self, statics):
-        super().__init__(statics)
+# class QuickTime(Element):
+#     def __init__(self, statics):
+#         super().__init__(statics)
+
+
+class AttributeCheck(Element):
+    def __init__(self, check: tuple[string, string], positiveScene, negativeScene):
+        super().__init__(StaticsList())
+        self.check = check
+        self.positiveScene = positiveScene
+        self.negativeScene = negativeScene
 
 
 class Scene:
@@ -82,7 +90,6 @@ class Scene:
         scenes.currentScene = self
 
     def update(self):
-        print(attributes)
         elem = self.elements[self.index]
 
         if not Input.getKey(pg.K_SPACE): Input.allowSpace = True
@@ -92,6 +99,7 @@ class Scene:
             if self.index + 1 < len(self.elements): self.index += 1
 
             elif self.nextScene is not None: self.nextScene.start()
+
         if type(elem) is Decision:
             for i in range(len(elem.choices)):
                 if Input.getKey(i + 49):
@@ -104,6 +112,14 @@ class Scene:
             if elem.current > elem.duration:
                 if self.index + 1 < len(self.elements): self.index += 1
                 elif self.nextScene is not None: self.nextScene.start()
+
+        if type(elem) is AttributeCheck:
+            check = elem.check
+            if check[0] in attributes.keys():
+                if attributes.get(check[0]) is check[1]:
+                    elem.positiveScene.start()
+                else: elem.negativeScene.start()
+            else: elem.negativeScene.start()
 
     def render(self):
         rh.drawImg(self.background, (-1, -1), (-1, -1))
