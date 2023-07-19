@@ -5,7 +5,7 @@ import Assets
 coasterFall = Scene(None, Assets.coasterFall, StaticsList(),
                     TextBox("Somehow, your cart fell off at the highest point of the loop.\nYou go to the hospital with 206 broken bones."))
 
-winAtLife = Scene(None, Assets.coasterFall, StaticsList(),
+winAtLife = Scene(None, Assets.funEnding, StaticsList(),
                   TextBox("The roller coaster broke down and killed everyone on it.\nThank god you didn't go on that. Anyways, you had fun at Six Flags\nand become a winner in life."))
 noCoaster = Scene(winAtLife, Assets.sixFlags, StaticsList(),
                   AttributeCheck(("anime", "true"), Scene(coasterFall, Assets.sixFlags, StaticsList(), TextBox("Anime forces you onto the roller coaster."))))

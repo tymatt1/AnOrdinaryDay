@@ -50,6 +50,7 @@ fallConcrete = load("backgrounds/Fall On Concrete")
 savedFriend = load("backgrounds/Saved Your Friend")
 famous = load("backgrounds/famousEndings")
 coasterFall = load("backgrounds/rollerCoasterLoopDeath")
+funEnding = load("backgrounds/sixFlagsFunEnding")
 title = load("backgrounds/TitleScreen")
 
 # fonts
