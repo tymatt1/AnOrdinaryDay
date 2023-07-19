@@ -20,7 +20,7 @@ dine = Scene(None, Assets.diningHall, StaticsList(),
                   ("Eggs and Sausage",Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
                   staticsTemp = StaticsList()
               ))
-# new branch example
+
 
 wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
                 TextBox("You wake up feeling energized"),
