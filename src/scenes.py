@@ -58,4 +58,4 @@ dorm = Scene(None, Assets.bedroom, StaticsList(),
 
 
 
-currentScene = friendKidnapped  # make this equal to the first scene
+currentScene = dorm  # make this equal to the first scene
