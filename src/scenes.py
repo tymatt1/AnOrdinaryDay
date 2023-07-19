@@ -29,8 +29,8 @@ wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
 
 wakeRoommate = Scene(None, Assets.matthew.stillRight, StaticsList(),
                      Decision(
-                         ('Wake Up Your Roommate', (), Scene(None, Assets.anime.stillLeft, StaticsList(), TextBox("You woke up your rooommate"))),
-                         ("Don't wake up your roommate", (), Scene(None, Assets.duy.stillLeft, StaticsList(), TextBox("You Roomate remains asleep"))),
+                         ('Wake Up Your Roommate', (), Scene(dine, Assets.anime.stillLeft, StaticsList(), TextBox("You woke up your rooommate"))),
+                         ("Don't wake up your roommate", (), Scene(dine, Assets.duy.stillLeft, StaticsList(), TextBox("You Roomate remains asleep"))),
                      ))
 
 brushTeeth = Scene(None, Assets.matthew.stillRight, StaticsList(),
