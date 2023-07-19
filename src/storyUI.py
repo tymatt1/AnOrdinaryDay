@@ -170,7 +170,7 @@ class Scene:
         boxHeight = 150
 
         if type(elem) is TextBox:
-            rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))
+            if elem.text != "": rh.drawRect((0, rh.height() - boxHeight), (rh.width(), boxHeight), (0, 0, 0, 200))
             rh.drawText(elem.text, 40, (-1, rh.height() - (boxHeight / 2)))
 
         if type(elem) is Decision:
