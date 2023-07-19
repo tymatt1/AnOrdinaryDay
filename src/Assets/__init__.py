@@ -46,7 +46,11 @@ chaseVan = load("backgrounds/Chase White Van")
 kidnapping = load("backgrounds/Kidnapping")
 bathroom = load("backgrounds/Bathroom")
 vanDeath = load("backgrounds/Van Death")
+fallConcrete = load("backgrounds/Fall On Concrete")
 savedFriend = load("backgrounds/Saved Your Friend")
+
+# fonts
+fontPath = path + "/fonts/VT323-Regular.ttf"
 
 # misc
 icon = load("misc/icon")
