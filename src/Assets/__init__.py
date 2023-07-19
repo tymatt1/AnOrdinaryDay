@@ -35,6 +35,7 @@ vanFight = load("backgrounds/VanFight")
 ufo = load("backgrounds/UFO")
 ufoWithAlien = load("backgrounds/UFO with Alien")
 newUFO = load("backgrounds/New UFO")
+gameOver = load("backgrounds/Game Over")
 
 # misc
 icon = load("misc/icon")
