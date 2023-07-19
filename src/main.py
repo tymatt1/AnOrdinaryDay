@@ -2,6 +2,7 @@ import pygame as pg
 import Assets
 import Input
 import scenes
+import morescenes
 import renderHelper as rh
 
 FPS = 60
