@@ -57,6 +57,12 @@ class QuickTime(Element):
 
 class Scene:
     def __init__(self, nextScene, background: pg.Surface, statics: StaticsList, *elements: Element):
+        """
+        :param nextScene: The scene that comes after this one finishes, use None if it ends in a Decision
+        :param background: The surface that will be used as the background
+        :param statics: The static images that will be present for the whole scene
+        :param elements: The elements to be iterated over during the scene
+        """
         self.nextScene = nextScene
         self.background = background
         self.statics = statics
