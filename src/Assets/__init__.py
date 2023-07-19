@@ -33,6 +33,8 @@ sixFlags = load("backgrounds/Six Flags")
 classroom = load("backgrounds/classroom")
 vanFight = load("backgrounds/VanFight")
 ufo = load("backgrounds/UFO")
+ufoWithAlien = load("backgrounds/UFO with Alien")
+newUFO = load("backgrounds/New UFO")
 
 # misc
 icon = load("misc/icon")
