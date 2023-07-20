@@ -53,6 +53,7 @@ coasterFall = load("backgrounds/rollerCoasterLoopDeath")
 funEnding = load("backgrounds/sixFlagsFunEnding")
 title = load("backgrounds/TitleScreen")
 shooting = load("backgrounds/shooting")
+shot = load("backgrounds/Shot by Terrorists.png")
 
 # misc
 icon = load("misc/icon")
