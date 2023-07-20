@@ -2,8 +2,8 @@ from evenMoreScenes import *
 import Assets
 
 
-alienLose = Scene(None, Assets.gameOver, StaticsList((Assets.sus, (1165, -5), (20, 50))), Sound(2), TextBox("The aliens were dissapointed that you got it wrong and evaporated you."))
-alienWin = Scene(None, Assets.famous, StaticsList((Assets.sus, (1165, -5), (20, 50))), Sound(1), TextBox("The aliens were so overjoyed by your intellect and let you go home.\nYou are now a celebrity on Earth."))
+alienLose = Scene(None, Assets.gameOver, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210)), (Assets.sus, (1165, -5), (20, 50))), Sound(2), TextBox("The aliens were dissapointed that you got it wrong and evaporated you."))
+alienWin = Scene(None, Assets.famous, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210)), (Assets.sus, (1165, -5), (20, 50))), Sound(1), TextBox("The aliens were so overjoyed by your intellect and let you go home.\nYou are now a celebrity on Earth."))
 
 alienQuiz = Scene(None, Assets.ufoWithAlien, StaticsList((Assets.sus, (1150, 0), (50, 20))),
                   TextBox("HELLO\nI am Xorp, this is Zzxoxzjozfoozp, and this is Terry"),
@@ -26,14 +26,14 @@ alienAbduct = Scene(alienQuiz, Assets.newUFO, StaticsList((Assets.sus, (1150, 0)
 
 
 jumpIntoVan = Scene(None, Assets.chaseVan, StaticsList(),
-                    AttributeCheck(("energy", "none"), Scene(None, Assets.vanDeath, StaticsList(), Sound(2),
+                    AttributeCheck(("energy", "none"), Scene(None, Assets.vanDeath, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                                                              TextBox("You bend your knees and jump as hard as you can.\nYou miss the van and fall onto the concrete.\nMaybe you should have slept in."))),
-                    AttributeCheck(("energy", "some"), Scene(None, Assets.vanDeath, StaticsList(), Sound(2),
+                    AttributeCheck(("energy", "some"), Scene(None, Assets.vanDeath, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                                                              TextBox("You manage to jump into the van, but you are exhausted.\nThe van people beat you and throw you out the back."))),
-                    AttributeCheck(("energy", "very"), Scene(None, Assets.savedFriend, StaticsList(), Sound(1),
+                    AttributeCheck(("energy", "very"), Scene(None, Assets.savedFriend, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(1),
                                                              TextBox("Since you slept in, you have lots of energy.\nYou jump into the van and easily defeat the van people.\nYou save your friend and you become internet famous\nbecause someone was recording."))))
 
-loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList(), Sound(2),
+loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                       TextBox("You missed the chance to save your friend. You live the rest of\nyour life with the agony and guilt,\nknowing they trusted you and you failed them."))
 trySave = Scene(loseFriendCry, Assets.chaseVan, StaticsList(),
                 TextBox("You decide to try to rescue them instead of going to class."),
@@ -48,14 +48,13 @@ friendKidnapped = Scene(None, Assets.kidnapping, StaticsList(),
 
 
 jerrySaved = Scene(goToClass, Assets.road, StaticsList(), TextBox("Oh no! You almost fell into a ditch,\nbut Jerry saved you and you go to class."))
-ditchMatthew = Scene(None, Assets.ditchDeathMatthew, StaticsList(), Sound(2),
+ditchMatthew = Scene(None, Assets.ditchDeathMatthew, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                      TextBox("You fell into a ditch and crack your head. Oh no.\nMatthew tried saving you, but he also fell into the ditch.\nAt least you don't die alone!"))
-fallIntoDitch = Scene(None, Assets.ditchDeathHead, StaticsList(),
+fallIntoDitch = Scene(None, Assets.ditchDeathHead, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))),
                       AttributeCheck(("jerry", "true"), jerrySaved),
                       AttributeCheck(("matthew", "true"), ditchMatthew),
                       Sound(2),
                       TextBox("You fell into a ditch and crack your head. Oh no."))
-
 
 
 walkToClass = Scene(None, Assets.roadCharacters, StaticsList(),
