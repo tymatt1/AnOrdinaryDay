@@ -53,9 +53,6 @@ coasterFall = load("backgrounds/rollerCoasterLoopDeath")
 funEnding = load("backgrounds/sixFlagsFunEnding")
 title = load("backgrounds/TitleScreen")
 
-# fonts
-fontPath = path + "/fonts/VT323-Regular.ttf"
-
 # misc
 icon = load("misc/icon")
 testImg = load("misc/phrog")
@@ -63,3 +60,9 @@ whiteVan = load("misc/White Van")
 sword = load("misc/Sword")
 waterGun = load("misc/WaterGun")
 sus = load("misc/ඩ")
+
+# fonts
+fontPath = path + "/fonts/VT323-Regular.ttf"
+
+# audio
+pg.mixer.music.load(path + "/audio/SFX/optionSelected.mp3")

@@ -29,7 +29,7 @@ wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
 wakeRoommate = Scene(None, Assets.bedroom, StaticsList(),
                      Decision(
                          ("Wake up roommate", ("anime", "true"), Scene(dine, Assets.bedroom, StaticsList(), TextBox("You woke up Anime, your rooommate.\nHe follows you.\nYou go to breakfast."))),
-                         ("Don't wake up roommate", ("imaginary", "true"), Scene(dine, Assets.bedroom, StaticsList(), TextBox("Your roomate remains asleep.\nYou go to breakfast."))),
+                         ("Don't wake up roommate", ("imaginary", "true"), Scene(dine, Assets.bedroom, StaticsList(), TextBox("Your roomate remains asleep.\nYou go to breakfast with your imaginary friend."))),
                      ))
 
 brushTeeth = Scene(None, Assets.bathroom, StaticsList(),
