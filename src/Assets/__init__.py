@@ -82,3 +82,15 @@ def playSound(index: int) -> None:
     :param index: The index of the sound to be played. 0: select, 1: good ending, 2: bad ending, 3: theme song
     """
     pg.mixer.Channel(index).play(sounds[index])
+
+def loopSound(index: int) -> None:
+    """
+    :param index: The index of the sound to be looped. 0: select, 1: good ending, 2: bad ending, 3: theme song
+    """
+    soundStrings: list[string] = [
+        path + "/audio/optionSelected.mp3",
+        path + "/audio/goodEnding.mp3",
+        path + "/audio/badEnding.mp3",
+        path + "/audio/Theme Song.mp3"
+    ]
+    sfx.music.load(soundStrings[index])
