@@ -20,7 +20,7 @@ sixFlags = Scene(None, Assets.sixFlags, StaticsList(),
                  ))
 terrBreath = Scene(None, Assets.shot, StaticsList(),
                   AttributeCheck(("breath", "good"), Scene(None, Assets.famous, StaticsList(), Sound(1),
-                                                           TextBox("Your tropical smelling breath from brushing your teeth charmed them,\nmaking them turn themselves in. You are now internet famous"))),
+                                                           TextBox("Your tropical smelling breath from brushing your teeth charmed them,\nmaking them turn themselves in. You are now internet famous."))),
                   Sound(2),
                   TextBox("They didn't listen..."))
 
@@ -32,7 +32,7 @@ fighter = Scene(None, Assets.shot, StaticsList(),
 
 
 terroristsEnter = Scene(None, Assets.classroom, StaticsList(),
-              TextBox("A group of people terrorize your building.\nDo you fight back?"),
+              TextBox("A group of people terrorize your building.\nWhat do you do?"),
               Decision(
                   ("Fight back", (), fighter),
                   ("Try to reason with them", (), terrBreath),
