@@ -2,10 +2,10 @@ from evenMoreScenes import *
 import Assets
 
 
-alienLose = Scene(None, Assets.vapor, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210)), (Assets.sus, (1165, -5), (20, 50))), Sound(2), TextBox("The aliens were dissapointed that you got it wrong and evaporated you."))
+alienLose = Scene(None, Assets.vapor, StaticsList((Assets.alien.stillLeft, (rh.width() - 400, 220), (260, 260)), (Assets.gameOverLabel, (-1, 50), (420, 210)), (Assets.sus, (1165, -5), (20, 50))), Sound(2), TextBox("The aliens were dissapointed that you got it wrong and evaporated you."))
 alienWin = Scene(None, Assets.famous, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210)), (Assets.sus, (1165, -5), (20, 50))), Sound(1), TextBox("The aliens were so overjoyed by your intellect and let you go home.\nYou are now a celebrity on Earth."))
 
-alienQuiz = Scene(None, Assets.ufoWithAlien, StaticsList((Assets.sus, (1150, 0), (50, 20))),
+alienQuiz = Scene(None, Assets.newUFO, StaticsList((Assets.alien.stillLeft, (rh.width() - 400, 220), (260, 260)), (Assets.main.stillRight, (80, 230), (260, 260)), (Assets.sus, (1150, 0), (50, 20))),
                   TextBox("HELLO\nI am Xorp, this is Zzxoxzjozfoozp, and this is Terry"),
                   TextBox("We have brought you here on our quest for infinite knowledge.\nIf you can answer our riddles one, you can leave our ship."),
                   TextBox("How many endings does this game have?"),
@@ -18,7 +18,7 @@ alienQuiz = Scene(None, Assets.ufoWithAlien, StaticsList((Assets.sus, (1150, 0),
                       ("10", (), alienLose)
                   ))
 
-alienAbduct = Scene(alienQuiz, Assets.newUFO, StaticsList((Assets.sus, (1150, 0), (50, 20))),
+alienAbduct = Scene(alienQuiz, Assets.newUFO, StaticsList((Assets.alien.stillLeft, (rh.width() - 400, 220), (260, 260)), (Assets.main.stillRight, (80, rh.height() - 180), (260, 260)), (Assets.sus, (1150, 0), (50, 20))),
                     TextBox("Aliens start trying to beam you up with their tractor beam!"),
                     AttributeCheck(("breath", "bad"), Scene(goToClass, Assets.newUFO, StaticsList((Assets.sus, (1150, 0), (50, 20))), TextBox("Luckily, your breath was so bad that they let you go.\nYou go to class."))),
                     AttributeCheck(("duy", "true"), Scene(goToClass, Assets.newUFO, StaticsList((Assets.sus, (1150, 0), (50, 20))), TextBox("Luckily, Duy is there and pulls you down.\nYou escape by going to class."))))
