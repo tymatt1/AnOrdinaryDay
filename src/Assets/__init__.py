@@ -62,6 +62,7 @@ whiteVan = load("misc/White Van")
 sword = load("misc/Sword")
 waterGun = load("misc/WaterGun")
 sus = load("misc/ඩ")
+gameOverLabel = load("misc/gameOverLabel")
 
 # fonts
 fontPath = path + "/fonts/VT323-Regular.ttf"
