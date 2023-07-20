@@ -54,6 +54,7 @@ funEnding = load("backgrounds/sixFlagsFunEnding")
 title = load("backgrounds/TitleScreen")
 shooting = load("backgrounds/shooting")
 shot = load("backgrounds/Shot by Terrorists")
+vapor = load("backgrounds/UFO with Lasers")
 
 # misc
 icon = load("misc/icon")
