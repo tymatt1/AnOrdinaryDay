@@ -29,8 +29,11 @@ wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
 
 wakeRoommate = Scene(None, Assets.bedroom, StaticsList(),
                      Decision(
-                         ("Wake up roommate", ("anime", "true"), Scene(dine, Assets.bedroom, StaticsList(), TextBox("You woke up Anime, your roommate.\nHe follows you.\nYou go to breakfast."))),
-                         ("Don't wake up roommate", ("imaginary", "true"), Scene(dine, Assets.bedroom, StaticsList(), TextBox("Your roommate remains asleep.\nYou go to breakfast with your imaginary friend."))),
+                         ("Wake up roommate", ("anime", "true"), Scene(dine, Assets.bedroom, StaticsList(),
+                                                                       Character(Assets.anime.stillLeft, (260, 260), (600, rh.height() + 260), (600, 100), 1.5),
+                                                                       Character(Assets.anime.stillLeft, (260, 260), (600, 100), (-260, 100), 1.5),
+                                                                       TextBox("You woke up Anime, your rooommate.\nHe follows you to breakfast."))),
+                         ("Don't wake up roommate", ("imaginary", "true"), Scene(dine, Assets.bedroom, StaticsList(), TextBox("Your roomate remains asleep.\nYou go to breakfast with your imaginary friend."))),
                      ))
 
 brushTeeth = Scene(None, Assets.bathroom, StaticsList(),
@@ -40,16 +43,18 @@ brushTeeth = Scene(None, Assets.bathroom, StaticsList(),
                    ))
 
 
-wakeAt9 = Scene(walkToClass, Assets.bedroom, StaticsList(),
-                TextBox("You wake up feeling super energized."),
-                TextBox("Diddly darn fiddlesticks!\nIt's 9:00 am!"),
-                Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 1))
+wakeAt9 = Scene(walkToClass, Assets.bedroom, StaticsList((Assets.main.stillLeft, (882, -70), (260, 260))),
+                TextBox("You wake up feeling super energized.", StaticsList((Assets.main.stillLeft, (882, -70), (260, 260)))),
+                TextBox("Diddly darn fiddlesticks!\nIt's 9:00 am!", StaticsList((Assets.main.stillLeft, (882, -70), (260, 260)))),
+                Character(Assets.main.stillLeft, (260, 260), (900, 260), (100, 260), 1))
 
 
-dorm = Scene(None, Assets.bedroom, StaticsList(),
+dorm = Scene(None, Assets.bedroom, StaticsList((Assets.main.stillLeft, (882, -70), (260, 260))),
              TextBox("You wake to your alarm.\nIt is 7:30 am."),
              Decision(
-                 ("Get ready", ("energy", "none"), Scene(brushTeeth, Assets.bedroom, StaticsList(), TextBox("Still tired, you wake up to start your day."), Character(Assets.main.stillLeft, (100, 80), (900, 260), (100, 260), 2.5)),),
+                 ("Get ready", ("energy", "none"), Scene(brushTeeth, Assets.bedroom, StaticsList(), TextBox("Still tired, you wake up to start your day.", StaticsList((Assets.main.stillLeft, (882, -70), (260, 260)))),
+                                                         Character(Assets.main.stillLeft, (260, 260), (882, -70), (600, 100), 1),
+                                                         Character(Assets.main.stillLeft, (260, 260), (600, 100), (-260, 100), 1.5))),
                  ("Go back to sleep", ("energy", "very"), Scene(wakeAt9, Assets.bedroom, StaticsList(), TextBox("You go back to sleep and gain massive amounts of evergy."))),
                  ("Snooze alarm", ("energy", "some"), Scene(wakeAt8, Assets.bedroom, StaticsList(), TextBox("You go back to sleep and gain some energy.")))
              )
