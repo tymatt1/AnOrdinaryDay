@@ -38,7 +38,7 @@ def drawImg(img: pg.Surface, pos: tuple[float, float], dims: tuple[float, float]
             (height() / 2) - (img.get_size()[1] / 2) if pos[1] == -1 else pos[1]
         ))
 
-def drawRect(pos: tuple[float, float], dims: tuple[float, float], color: tuple[int, int, int] | tuple[int, int, int, int]):
+def drawRect(pos: tuple[float, float], dims: tuple[float, float], color: tuple):
     """
     :param color: The color of the rectangle
     :param pos: The position of the top left corner of the rectangle
