@@ -165,10 +165,10 @@ class Scene:
         if type(elem) is QuickTimeEvent:
             elem.current += 1000 / 60
             if Input.getKey(1 + 48):
+                Assets.playSound(0)
                 elem.positiveScene.start()
                 return
             if elem.current > elem.duration:
-                Assets.playSound(0)
                 if self.index + 1 < len(self.elements): self.index += 1
                 elif self.nextScene is not None: self.nextScene.start()
 
