@@ -34,10 +34,16 @@ jumpIntoVan = Scene(None, Assets.chaseVan, StaticsList(),
                                                              TextBox("Since you slept in, you have lots of energy.\nYou jump into the van and easily defeat the van people.\nYou save your friend and you become internet famous\nbecause someone was recording."))))
 
 loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList(), TextBox("You missed the chance to save your friend. You live the rest of\nyour life with the agony and guilt,\nknowing they trusted you and you failed them."))
-friendKidnapped = Scene(loseFriendCry, Assets.kidnapping, StaticsList(),
+trySave = Scene(loseFriendCry, Assets.chaseVan, StaticsList(),
+                TextBox("You decide to try to rescue them instead of going to class."),
+                QuickTimeEvent("The van is actually pretty slow.\nYou might be able to jump in!", 2.5, jumpIntoVan))
+
+friendKidnapped = Scene(None, Assets.kidnapping, StaticsList(),
                         TextBox("Oh no!\nYour friend was kidnapped by some guys in a nondescript white van!"),
-                        TextBox("You decide to try to rescue them instead of going to class."),
-                        QuickTimeEvent("The van is actually pretty slow.\nYou might be able to jump in!", 2.5, jumpIntoVan))
+                        Decision(
+                            ("Try to save your friend", (), trySave),
+                            ("Go to classs", (), Scene(goToClass, Assets.roadCharacters, StaticsList(), TextBox("You forget about it and go to class.\nWhat friend?")))
+                        ))
 
 
 jerrySaved = Scene(goToClass, Assets.road, StaticsList(), TextBox("Oh no! You almost fell into a ditch,\nbut Jerry saved you and you go to class."))
