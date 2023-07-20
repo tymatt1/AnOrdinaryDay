@@ -73,11 +73,12 @@ sfx.set_num_channels(10)
 sounds: list[sfx.Sound] = [
     sfx.Sound(path + "/audio/optionSelected.mp3"),
     sfx.Sound(path + "/audio/goodEnding.mp3"),
-    sfx.Sound(path + "/audio/badEnding.mp3")
+    sfx.Sound(path + "/audio/badEnding.mp3"),
+    sfx.Sound(path + "/audio/Theme Song.mp3")
 ]
 
 def playSound(index: int) -> None:
     """
-    :param index: The index of the sound to be played. 0: select, 1: good ending, 2: bad ending
+    :param index: The index of the sound to be played. 0: select, 1: good ending, 2: bad ending, 3: theme song
     """
     pg.mixer.Channel(index).play(sounds[index])

@@ -103,7 +103,7 @@ class Sound(Element):
     def __init__(self, soundIndex: int):
         """
         Sounds play during following Elements.
-        :param soundIndex: The index of the sound to be played. 0: select, 1: good ending, 2: bad ending
+        :param soundIndex: The index of the sound to be played. 0: select, 1: good ending, 2: bad ending, 3: theme song
         """
         super().__init__(StaticsList())
         self.soundIndex = soundIndex
