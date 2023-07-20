@@ -58,4 +58,4 @@ dorm = Scene(None, Assets.bedroom, StaticsList(),
 
 title = Scene(dorm, Assets.title, StaticsList(), TextBox(""))
 
-currentScene: Scene = title  # make this equal to the first scene
+currentScene: Scene = title  # make this the first scene
