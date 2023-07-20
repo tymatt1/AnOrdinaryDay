@@ -19,20 +19,23 @@ sixFlags = Scene(None, Assets.sixFlags, StaticsList(),
                      ("Don't go on roller coaster", (), noCoaster)
                  ))
 terrBreath = Scene(None, Assets.shot, StaticsList(),
-                  AttributeCheck(("breath", "good"), Scene(None, Assets.famous, StaticsList(), Sound(1), TextBox("You tropical smelling breath from your toothpaste charmed them \n making them turn themselves in, you are now internet famous"))),
+                  AttributeCheck(("breath", "good"), Scene(None, Assets.famous, StaticsList(), Sound(1),
+                                                           TextBox("Your tropical smelling breath from brushing your teeth charmed them,\nmaking them turn themselves in. You are now internet famous"))),
                   Sound(2),
-                  TextBox("Why didn't you try anything, you got shot!"))
+                  TextBox("They didn't listen..."))
 
-fighter = Scene(terrBreath, Assets.shot, StaticsList(),
-                  AttributeCheck(("imaginary", "true"), Scene(None, Assets.savedFriend, StaticsList(), Sound(1), TextBox("They were scary, but your imaginary friend defeats them all"))),
-                  TextBox("It was 20 v 1. What were you thinking??? You got shot."))
+fighter = Scene(None, Assets.shot, StaticsList(),
+                  AttributeCheck(("imaginary", "true"), Scene(None, Assets.savedFriend, StaticsList(), Sound(1),
+                                                              TextBox("They were scary, but your imaginary friend defeats them all.\nEveryone now thinks you have telekinesis powers."))),
+                  Sound(2),
+                  TextBox("It was 20 vs 1. What were you thinking??? You got shot."))
 
 
 terroristsEnter = Scene(None, Assets.classroom, StaticsList(),
               TextBox("A group of people terrorize your building.\nDo you fight back?"),
               Decision(
                   ("Fight back", (), fighter),
-                  ("Don't do anything", (), terrBreath),
+                  ("Try to reason with them", (), terrBreath),
               ))
 
 
