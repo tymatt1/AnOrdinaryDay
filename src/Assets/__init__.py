@@ -52,9 +52,7 @@ famous = load("backgrounds/famousEndings")
 coasterFall = load("backgrounds/rollerCoasterLoopDeath")
 funEnding = load("backgrounds/sixFlagsFunEnding")
 title = load("backgrounds/TitleScreen")
-
-# fonts
-fontPath = path + "/fonts/VT323-Regular.ttf"
+shooting = load("backgrounds/shooting")
 
 # misc
 icon = load("misc/icon")
@@ -63,3 +61,10 @@ whiteVan = load("misc/White Van")
 sword = load("misc/Sword")
 waterGun = load("misc/WaterGun")
 sus = load("misc/ඩ")
+
+# fonts
+fontPath = path + "/fonts/VT323-Regular.ttf"
+
+# audio
+pg.mixer.init()
+pg.mixer.music.load(path + "/audio/SFX/optionSelected.mp3")
