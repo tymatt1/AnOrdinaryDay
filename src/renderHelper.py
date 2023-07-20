@@ -50,7 +50,7 @@ def drawRect(pos: tuple[float, float], dims: tuple[float, float], color: tuple[i
     s.fill(noA)
     screen.blit(s, pos)
 
-def drawText(text: string, fontSize: int, pos: tuple, color: tuple[int, int, int] = (255, 255, 255), font: string = Assets.fontPath):
+def drawText(text: string, fontSize: int, pos: tuple[float, float], color: tuple[int, int, int] = (255, 255, 255), font: string = Assets.fontPath):
     """
     :param text: The string to be drawn. Backslash-n will automatically split the text into two lines
     :param fontSize: The size of the font in pixels
