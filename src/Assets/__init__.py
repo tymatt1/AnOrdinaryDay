@@ -1,7 +1,7 @@
 import os
 import string
 import pygame as pg
-import pygame.mixer
+import pygame.mixer as sfx
 
 path = os.path.dirname(os.path.abspath(__file__))  # need to add the path or it won't run when double clicked
 def load(name: string) -> pg.Surface:
@@ -69,12 +69,11 @@ fontPath = path + "/fonts/VT323-Regular.ttf"
 
 
 # audio
-pg.mixer.init()
-pygame.mixer.set_num_channels(10)
+sfx.init()
+sfx.set_num_channels(10)
+sounds: list[sfx.Sound] = [
+    sfx.Sound(path + "/audio/SFX/optionSelected.mp3"),
+]
 
-def playSound(soundNum):
-    if soundNum == 1:
-        pg.mixer.Channel(1).play(pygame.mixer.Sound(path + "/audio/SFX/optionSelected.mp3"))
-    else:
-        print("else")
-
+def playSound(index):
+    pg.mixer.Channel(index).play(sounds[index])
