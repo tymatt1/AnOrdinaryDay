@@ -102,7 +102,7 @@ class QuickTimeEvent(Element):
 class Sound(Element):
     def __init__(self, soundIndex: int):
         """
-        :param soundIndex: The index of the sound in the Assets package to be played
+        :param soundIndex: The index of the sound to be played. 0: select, 1: good ending, 2: bad ending
         """
         super().__init__(StaticsList())
         self.soundIndex = soundIndex
