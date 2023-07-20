@@ -52,6 +52,7 @@ famous = load("backgrounds/famousEndings")
 coasterFall = load("backgrounds/rollerCoasterLoopDeath")
 funEnding = load("backgrounds/sixFlagsFunEnding")
 title = load("backgrounds/TitleScreen")
+shooting = load("backgrounds/shooting")
 
 # misc
 icon = load("misc/icon")
@@ -65,4 +66,5 @@ sus = load("misc/ඩ")
 fontPath = path + "/fonts/VT323-Regular.ttf"
 
 # audio
+pg.mixer.init()
 pg.mixer.music.load(path + "/audio/SFX/optionSelected.mp3")

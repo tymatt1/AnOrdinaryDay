@@ -122,8 +122,9 @@ class Scene:
 
         if type(elem) is TextBox and Input.allowSpace and Input.getKey(pg.K_SPACE):
             Input.allowSpace = False
-            if self.index + 1 < len(self.elements): self.index += 1
-
+            if self.index + 1 < len(self.elements):
+                self.index += 1
+                pg.mixer.music.play()
             elif self.nextScene is not None: self.nextScene.start()
 
         if type(elem) is Decision:
@@ -131,6 +132,7 @@ class Scene:
                 if Input.getKey(i + 49):
                     if len(elem.choices[i][1]) == 2:
                         attributes.update({str(elem.choices[i][1][0]): str(elem.choices[i][1][1])})
+                    pg.mixer.music.play()
                     elem.choices[i][2].start()
 
         if type(elem) is Character:
@@ -157,7 +159,9 @@ class Scene:
                 elem.positiveScene.start()
                 return
             if elem.current > elem.duration:
-                if self.index + 1 < len(self.elements): self.index += 1
+                if self.index + 1 < len(self.elements):
+                    self.index += 1
+                    pg.mixer.music.play()
                 elif self.nextScene is not None: self.nextScene.start()
 
 
