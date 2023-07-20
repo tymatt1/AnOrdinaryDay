@@ -94,3 +94,4 @@ def loopSound(index: int) -> None:
         path + "/audio/Theme Song.mp3"
     ]
     sfx.music.load(soundStrings[index])
+    sfx.music.play(-1)
