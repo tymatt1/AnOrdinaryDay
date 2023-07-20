@@ -2,6 +2,7 @@ from moreScenes import *
 import Assets
 
 
+
 badStomach = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("Your stomach doesn't feel so good..."),
               Decision(
