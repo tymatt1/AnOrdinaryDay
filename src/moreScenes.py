@@ -7,7 +7,7 @@ alienWin = Scene(None, Assets.famous, StaticsList((Assets.sus, (1165, -5), (20, 
 
 alienQuiz = Scene(None, Assets.ufoWithAlien, StaticsList((Assets.sus, (1150, 0), (50, 20))),
                   TextBox("HELLO\nI am Xorp, this is Zzxoxzjozfoozp, and this is Terry"),
-                  TextBox("We have brough you here on our quest for infinite knowledge.\nIf you can answer our riddles one, you can leave our ship."),
+                  TextBox("We have brought you here on our quest for infinite knowledge.\nIf you can answer our riddles one, you can leave our ship."),
                   TextBox("How many endings does this game have?"),
                   Decision(
                       ("17", (), alienLose),
