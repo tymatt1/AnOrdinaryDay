@@ -71,10 +71,8 @@ fontPath = path + "/fonts/VT323-Regular.ttf"
 # audio
 pg.mixer.init()
 pygame.mixer.set_num_channels(10)
-# pg.mixer.Channel(1).load(path + "/audio/SFX/optionSelected.mp3")
 
 def playSound(soundNum):
-
     if soundNum == 1:
         pg.mixer.Channel(1).play(pygame.mixer.Sound(path + "/audio/SFX/optionSelected.mp3"))
     else:
