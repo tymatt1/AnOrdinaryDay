@@ -17,19 +17,19 @@ sixFlags = Scene(None, Assets.sixFlags, StaticsList(),
                      ("Don't go on roller coaster", (), noCoaster)
                  ))
 terrBreath = Scene(None, Assets.shot, StaticsList(),
-                  AttributeCheck(("breath", "good"), Scene(coasterFall, Assets.famous, StaticsList(), TextBox("You tropical smelling breath from your toothpaste charmed them making them turn themselves in, you are now internet famous"))),
+                  AttributeCheck(("breath", "good"), Scene(None, Assets.famous, StaticsList(), TextBox("You tropical smelling breath from your toothpaste charmed them \n making them turn themselves in, you are now internet famous"))),
                   TextBox("Why didn't you try anything, you got shot"))
 
 fighter = Scene(terrBreath, Assets.shot, StaticsList(),
-                  AttributeCheck(("imaginary", "true"), Scene(coasterFall, Assets.savedFriend, StaticsList(), TextBox("They were scary, but your imaginary friend defeats them all"))),
+                  AttributeCheck(("imaginary", "true"), Scene(None, Assets.savedFriend, StaticsList(), TextBox("They were scary, but your imaginary friend defeats them all"))),
                   TextBox("It was 20v1 what were you thinking, you got shot"))
 
 
 terroristsEnter = Scene(None, Assets.classroom, StaticsList(),
               TextBox("A group of people terrorize your building, fight back?"),
               Decision(
-                  ("Yes, fight back", (), Scene(fighter, Assets.classroom, StaticsList(),)),
-                  ("No don't do anything", (), Scene(terrBreath, Assets.classroom, StaticsList())),
+                  ("Yes, fight back", (), fighter),
+                  ("No don't do anything", (), terrBreath),
               ))
 
 
