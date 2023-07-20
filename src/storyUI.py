@@ -125,6 +125,7 @@ class Scene:
 
     def start(self):
         scenes.currentScene = self
+        self.index = 0
 
     def update(self):
         elem = self.elements[self.index]

@@ -15,6 +15,7 @@ while running:  # start game loop
 
     Input.handle()
     if Input.stop: running = False
+    if Input.getKey(pg.K_r): scenes.title.start()
 
     rh.renderBackground()
     scenes.currentScene.update()
