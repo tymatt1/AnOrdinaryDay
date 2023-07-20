@@ -6,6 +6,7 @@ import pygame as pg
 import Input
 import renderHelper as rh
 from GameMath import *
+import Assets
 import scenes
 
 
@@ -124,7 +125,6 @@ class Scene:
             Input.allowSpace = False
             if self.index + 1 < len(self.elements):
                 self.index += 1
-                pg.mixer.music.play()
             elif self.nextScene is not None: self.nextScene.start()
 
         if type(elem) is Decision:
@@ -132,7 +132,8 @@ class Scene:
                 if Input.getKey(i + 49):
                     if len(elem.choices[i][1]) == 2:
                         attributes.update({str(elem.choices[i][1][0]): str(elem.choices[i][1][1])})
-                    pg.mixer.music.play()
+                    Assets.playSound(1)
+                    #pg.mixer.music.play()
                     elem.choices[i][2].start()
 
         if type(elem) is Character:
@@ -161,7 +162,8 @@ class Scene:
             if elem.current > elem.duration:
                 if self.index + 1 < len(self.elements):
                     self.index += 1
-                    pg.mixer.music.play()
+                    Assets.playSound(1)
+                    # pg.mixer.music.play()
                 elif self.nextScene is not None: self.nextScene.start()
 
 
