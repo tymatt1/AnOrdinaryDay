@@ -35,7 +35,7 @@ jumpIntoVan = Scene(None, Assets.chaseVan, StaticsList(),
 
 loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                       TextBox("You missed the chance to save your friend. You live the rest of\nyour life with the agony and guilt,\nknowing they trusted you and you failed them."))
-trySave = Scene(loseFriendCry, Assets.chaseVan, StaticsList(),
+trySave = Scene(loseFriendCry, Assets.chaseVan, StaticsList((Assets.main.stillRight, (-1, rh.height() - 260), (260, 260))),
                 TextBox("You decide to try to rescue them instead of going to class."),
                 QuickTimeEvent("The van is actually pretty slow.\nYou might be able to jump in!", 2.5, jumpIntoVan))
 
@@ -47,7 +47,7 @@ friendKidnapped = Scene(None, Assets.kidnapping, StaticsList(),
                         ))
 
 
-jerrySaved = Scene(goToClass, Assets.road, StaticsList(), TextBox("Oh no! You almost fell into a ditch,\nbut Jerry saved you and you go to class."))
+jerrySaved = Scene(goToClass, Assets.roadCharacters, StaticsList(), TextBox("Oh no! You almost fell into a ditch,\nbut Jerry saved you and you go to class."))
 ditchMatthew = Scene(None, Assets.ditchDeathMatthew, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                      TextBox("You fell into a ditch and crack your head. Oh no.\nMatthew tried saving you, but he also fell into the ditch.\nAt least you don't die alone!"))
 fallIntoDitch = Scene(None, Assets.ditchDeathHead, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))),
