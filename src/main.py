@@ -7,6 +7,7 @@ import renderHelper as rh
 FPS = 60
 
 rh.init("An Ordinary Day", Assets.icon)
+Assets.loopSound(3)
 
 running = True
 while running:  # start game loop
