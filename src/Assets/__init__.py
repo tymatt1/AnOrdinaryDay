@@ -71,9 +71,9 @@ fontPath = path + "/fonts/VT323-Regular.ttf"
 sfx.init()
 sfx.set_num_channels(10)
 sounds: list[sfx.Sound] = [
-    sfx.Sound(path + "/audio/SFX/optionSelected.mp3"),
-    sfx.Sound(path + "/audio/SFX/goodEnding.mp3"),
-    sfx.Sound(path + "/audio/SFX/badEnding.mp3")
+    sfx.Sound(path + "/audio/optionSelected.mp3"),
+    sfx.Sound(path + "/audio/goodEnding.mp3"),
+    sfx.Sound(path + "/audio/badEnding.mp3")
 ]
 
 def playSound(index: int) -> None:
