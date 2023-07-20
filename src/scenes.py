@@ -7,7 +7,7 @@ badStomach = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("Your stomach doesn't feel so good..."),
               Decision(
                   ("Go to the bathroom", (), Scene(walkToClass, Assets.diningHall, StaticsList(), TextBox("Much better. Time to go to class."))),
-                  ("Go to class", (), Scene(None, Assets.poopDeath, StaticsList(), TextBox("You pooped your pants.\nThe world fades as you fall to the ground."))),
+                  ("Go to class", (), Scene(None, Assets.poopDeath, StaticsList(), Sound(2), TextBox("You pooped your pants.\nThe world fades as you fall to the ground."))),
               ))
 
 
@@ -19,7 +19,7 @@ dine = Scene(None, Assets.diningHall, StaticsList(),
                   ("Oatmeal", ("duy", "true"), Scene(walkToClass, Assets.road, StaticsList(), TextBox("Time to go to class.\nDuy follows you because of your oatmealish scent."))),
                   ("Eggs and Sausage", (), Scene(badStomach, Assets.icon, StaticsList(), TextBox("Uh Oh"))),
               ))
-# new branch example
+
 
 wakeAt8 = Scene(dine, Assets.bedroom, StaticsList(),
                 TextBox("You wake up feeling energized."),
