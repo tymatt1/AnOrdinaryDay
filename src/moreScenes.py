@@ -25,13 +25,13 @@ alienAbduct = Scene(alienQuiz, Assets.newUFO, StaticsList((Assets.sus, (1150, 0)
 
 
 
-jumpIntoVan = Scene(None, Assets.chaseVan, StaticsList(),
+jumpIntoVan = Scene(None, Assets.savedFriend, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))),
                     AttributeCheck(("energy", "none"), Scene(None, Assets.vanDeath, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                                                              TextBox("You bend your knees and jump as hard as you can.\nYou miss the van and fall onto the concrete.\nMaybe you should have slept in."))),
                     AttributeCheck(("energy", "some"), Scene(None, Assets.vanDeath, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                                                              TextBox("You manage to jump into the van, but you are exhausted.\nThe van people beat you and throw you out the back."))),
-                    AttributeCheck(("energy", "very"), Scene(None, Assets.savedFriend, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(1),
-                                                             TextBox("Since you slept in, you have lots of energy.\nYou jump into the van and easily defeat the van people.\nYou save your friend and you become internet famous\nbecause someone was recording."))))
+                    Sound(1),
+                    TextBox("Since you slept in, you have lots of energy.\nYou jump into the van and easily defeat the van people.\nYou save your friend and you become internet famous\nbecause someone was recording."))
 
 loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2),
                       TextBox("You missed the chance to save your friend. You live the rest of\nyour life with the agony and guilt,\nknowing they trusted you and you failed them."))
