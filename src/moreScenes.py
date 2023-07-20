@@ -58,4 +58,4 @@ fallIntoDitch = Scene(None, Assets.ditchDeathHead, StaticsList(),
 walkToClass = Scene(None, Assets.roadCharacters, StaticsList(),
                        TextBox("You walk to class."),
                        TextBox("Suddenly..."),
-                       RNGScene(alienAbduct, friendKidnapped, fallIntoDitch))
+                       RNGScene(alienAbduct, alienAbduct, alienAbduct, alienAbduct, friendKidnapped, friendKidnapped, friendKidnapped, friendKidnapped, fallIntoDitch, fallIntoDitch))
