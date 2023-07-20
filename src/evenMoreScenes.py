@@ -12,7 +12,7 @@ winAtLife = Scene(None, Assets.funEnding, StaticsList((Assets.gameOverLabel, (-1
 noCoaster = Scene(winAtLife, Assets.sixFlags, StaticsList(),
                   AttributeCheck(("anime", "true"), Scene(coasterFall, Assets.sixFlags, StaticsList(), TextBox("Anime forces you onto the roller coaster."))))
 
-sixFlags = Scene(None, Assets.sixFlags, StaticsList(),
+sixFlags = Scene(None, Assets.sixFlags, StaticsList((Assets.main.stillRight, (260, rh.height() - 300), (260, 260)), (Assets.zach.stillLeft, (rh.width() - 260, rh.height() - 400), (260, 260)), (Assets.spiderman.stillRight, (rh.width() - 420, -90), (260, 260))),
                  TextBox("Yay! You're at Six Flags!\nDo you want to go on the roller coaster?"),
                  Decision(
                      ("Go on roller coaster", (), coasterFall),
