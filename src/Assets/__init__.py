@@ -74,7 +74,16 @@ sfx.init()
 sfx.set_num_channels(10)
 sounds: list[sfx.Sound] = [
     sfx.Sound(path + "/audio/SFX/optionSelected.mp3"),
+<<<<<<< Updated upstream
     sfx.Sound(path + "/audio/SFX/badEnding.mp3")
+=======
+<<<<<<< HEAD
+    sfx.Sound(path + "/audio/SFX/badEndingSound.mp3"),
+    sfx.Sound(path + "/audio/SFX/goodEnding.mp3")
+=======
+    sfx.Sound(path + "/audio/SFX/badEnding.mp3")
+>>>>>>> ba1a848d978291c8a1aade590806f10aa750fe18
+>>>>>>> Stashed changes
 ]
 
 def playSound(index):
