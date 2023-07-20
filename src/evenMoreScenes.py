@@ -18,11 +18,11 @@ sixFlags = Scene(None, Assets.sixFlags, StaticsList(),
                      ("Go on roller coaster", (), coasterFall),
                      ("Don't go on roller coaster", (), noCoaster)
                  ))
-terrBreath = Scene(None, Assets.shot, StaticsList(),
+terrBreath = Scene(None, Assets.fireBuilding, StaticsList(),
                   AttributeCheck(("breath", "good"), Scene(None, Assets.famous, StaticsList(), Sound(1),
                                                            TextBox("Your tropical smelling breath from brushing your teeth charmed them,\nmaking them turn themselves in. You are now internet famous."))),
                   Sound(2),
-                  TextBox("They didn't listen..."))
+                  TextBox("They didn't listen...\nIt's up to the archaeologists to find your remains."))
 
 fighter = Scene(None, Assets.shot, StaticsList(),
                   AttributeCheck(("imaginary", "true"), Scene(None, Assets.savedFriend, StaticsList(), Sound(1),
