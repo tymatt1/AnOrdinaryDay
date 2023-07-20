@@ -99,6 +99,15 @@ class QuickTimeEvent(Element):
         self.positiveScene = positiveScene
 
 
+class Sound(Element):
+    def __init__(self, soundIndex: int):
+        """
+        :param soundIndex: The index of the sound in the Assets package to be played
+        """
+        super().__init__(StaticsList())
+        self.soundIndex = soundIndex
+
+
 class Scene:
     def __init__(self, nextScene, background: pg.Surface, statics: StaticsList, *elements: Element):
         """
@@ -159,10 +168,14 @@ class Scene:
                 elem.positiveScene.start()
                 return
             if elem.current > elem.duration:
-                if self.index + 1 < len(self.elements):
-                    self.index += 1
-                    Assets.playSound(0)
+                Assets.playSound(0)
+                if self.index + 1 < len(self.elements): self.index += 1
                 elif self.nextScene is not None: self.nextScene.start()
+
+        if type(elem) is Sound:
+            Assets.playSound(elem.soundIndex)
+            if self.index + 1 < len(self.elements): self.index += 1
+            elif self.nextScene is not None: self.nextScene.start()
 
 
     def render(self):
