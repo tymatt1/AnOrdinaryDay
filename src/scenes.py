@@ -7,7 +7,7 @@ badStomach = Scene(None, Assets.diningHall, StaticsList(),
               TextBox("Your stomach doesn't feel so good..."),
               Decision(
                   ("Go to the bathroom", (), Scene(walkToClass, Assets.diningHall, StaticsList(), TextBox("Much better. Time to go to class."))),
-                  ("Go to class", (), Scene(None, Assets.poopDeath, StaticsList(), Sound(2), TextBox("You pooped your pants.\nThe world fades as you fall to the ground."))),
+                  ("Go to class", (), Scene(None, Assets.poopDeath, StaticsList((Assets.gameOverLabel, (-1, 50), (420, 210))), Sound(2), TextBox("You pooped your pants.\nThe world fades as you fall to the ground."))),
               ))
 
 
@@ -58,4 +58,4 @@ dorm = Scene(None, Assets.bedroom, StaticsList(),
 
 title = Scene(dorm, Assets.title, StaticsList(), TextBox(""))
 
-currentScene: Scene = title  # make this equal to the first scene
+currentScene: Scene = title  # make this the first scene
