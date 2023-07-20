@@ -76,5 +76,8 @@ sounds: list[sfx.Sound] = [
     sfx.Sound(path + "/audio/SFX/badEnding.mp3")
 ]
 
-def playSound(index):
+def playSound(index: int) -> None:
+    """
+    :param index: The index of the sound to be played. 0: select, 1: good ending, 2: bad ending
+    """
     pg.mixer.Channel(index).play(sounds[index])
