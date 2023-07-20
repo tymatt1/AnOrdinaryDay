@@ -18,7 +18,7 @@ while running:  # start game loop
     rh.renderBackground()
     scenes.currentScene.update()
     scenes.currentScene.render()
-
+ 
     rh.render()
     pg.time.wait(int(1000 / FPS) - (pg.time.get_ticks() - startMillis))  # do math to fps limit the game
 

@@ -52,6 +52,7 @@ famous = load("backgrounds/famousEndings")
 coasterFall = load("backgrounds/rollerCoasterLoopDeath")
 funEnding = load("backgrounds/sixFlagsFunEnding")
 title = load("backgrounds/TitleScreen")
+shot = load("backgrounds/Shot by Terrorists")
 
 # fonts
 fontPath = path + "/fonts/VT323-Regular.ttf"
