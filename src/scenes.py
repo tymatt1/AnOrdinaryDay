@@ -35,8 +35,8 @@ wakeRoommate = Scene(None, Assets.bedroom, StaticsList(),
 
 brushTeeth = Scene(None, Assets.bathroom, StaticsList(),
                    Decision(
-                       ("Brush teeth", ("breath", "good"), Scene(wakeRoommate, Assets.anime.stillLeft, StaticsList(), TextBox("You brushed and have good breath"))),
-                       ("Don't brush teeth", ("breath", "bad"), Scene(wakeRoommate, Assets.duy.stillLeft, StaticsList(), TextBox("You didn't brush and have bad breath"))),
+                       ("Brush teeth", ("breath", "good"), Scene(wakeRoommate, Assets.bathroom, StaticsList(), TextBox("You brushed and have good breath"))),
+                       ("Don't brush teeth", ("breath", "bad"), Scene(wakeRoommate, Assets.bathroom, StaticsList(), TextBox("You didn't brush and have bad breath"))),
                    ))
 
 
