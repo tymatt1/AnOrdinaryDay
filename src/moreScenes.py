@@ -26,14 +26,15 @@ alienAbduct = Scene(alienQuiz, Assets.newUFO, StaticsList((Assets.sus, (1150, 0)
 
 
 jumpIntoVan = Scene(None, Assets.chaseVan, StaticsList(),
-                    AttributeCheck(("energy", "none"), Scene(None, Assets.vanDeath, StaticsList(),
+                    AttributeCheck(("energy", "none"), Scene(None, Assets.vanDeath, StaticsList(), Sound(2),
                                                              TextBox("You bend your knees and jump as hard as you can.\nYou miss the van and fall onto the concrete.\nMaybe you should have slept in."))),
-                    AttributeCheck(("energy", "some"), Scene(None, Assets.vanDeath, StaticsList(),
+                    AttributeCheck(("energy", "some"), Scene(None, Assets.vanDeath, StaticsList(), Sound(2),
                                                              TextBox("You manage to jump into the van, but you are exhausted.\nThe van people beat you and throw you out the back."))),
-                    AttributeCheck(("energy", "very"), Scene(None, Assets.savedFriend, StaticsList(),
+                    AttributeCheck(("energy", "very"), Scene(None, Assets.savedFriend, StaticsList(), Sound(1),
                                                              TextBox("Since you slept in, you have lots of energy.\nYou jump into the van and easily defeat the van people.\nYou save your friend and you become internet famous\nbecause someone was recording."))))
 
-loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList(), TextBox("You missed the chance to save your friend. You live the rest of\nyour life with the agony and guilt,\nknowing they trusted you and you failed them."))
+loseFriendCry = Scene(None, Assets.depressionEnding, StaticsList(), Sound(2),
+                      TextBox("You missed the chance to save your friend. You live the rest of\nyour life with the agony and guilt,\nknowing they trusted you and you failed them."))
 trySave = Scene(loseFriendCry, Assets.chaseVan, StaticsList(),
                 TextBox("You decide to try to rescue them instead of going to class."),
                 QuickTimeEvent("The van is actually pretty slow.\nYou might be able to jump in!", 2.5, jumpIntoVan))
@@ -47,10 +48,12 @@ friendKidnapped = Scene(None, Assets.kidnapping, StaticsList(),
 
 
 jerrySaved = Scene(goToClass, Assets.road, StaticsList(), TextBox("Oh no! You almost fell into a ditch,\nbut Jerry saved you and you go to class."))
-ditchMatthew = Scene(None, Assets.ditchDeathMatthew, StaticsList(), TextBox("You fell into a ditch and crack your head. Oh no.\nMatthew tried saving you, but he also fell into the ditch.\nAt least you don't die alone!"))
+ditchMatthew = Scene(None, Assets.ditchDeathMatthew, StaticsList(), Sound(2),
+                     TextBox("You fell into a ditch and crack your head. Oh no.\nMatthew tried saving you, but he also fell into the ditch.\nAt least you don't die alone!"))
 fallIntoDitch = Scene(None, Assets.ditchDeathHead, StaticsList(),
                       AttributeCheck(("jerry", "true"), jerrySaved),
                       AttributeCheck(("matthew", "true"), ditchMatthew),
+                      Sound(2),
                       TextBox("You fell into a ditch and crack your head. Oh no."))
 
 
