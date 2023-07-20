@@ -18,6 +18,11 @@ alienQuiz = Scene(None, Assets.ufoWithAlien, StaticsList((Assets.sus, (1150, 0),
                       ("10", (), alienLose)
                   ))
 
+alienAbduct = Scene(alienQuiz, Assets.newUFO, StaticsList((Assets.sus, (1150, 0), (50, 20))),
+                    TextBox("Aliens start trying to beam you up with their tractor beam!"),
+                    AttributeCheck(("breath", "bad"), Scene(goToClass, Assets.newUFO, StaticsList((Assets.sus, (1150, 0), (50, 20))), TextBox("Luckily, your breath was so bad that they let you go.\nYou go to class."))),
+                    AttributeCheck(("duy", "true"), Scene(goToClass, Assets.newUFO, StaticsList((Assets.sus, (1150, 0), (50, 20))), TextBox("Luckily, Duy is there and pulls you down.\nYou escape by going to class."))))
+
 
 
 jumpIntoVan = Scene(None, Assets.chaseVan, StaticsList(),
@@ -47,4 +52,4 @@ fallIntoDitch = Scene(None, Assets.ditchDeathHead, StaticsList(),
 walkToClass = Scene(None, Assets.roadCharacters, StaticsList(),
                        TextBox("You walk to class."),
                        TextBox("Suddenly..."),
-                       RNGScene(alienQuiz, friendKidnapped, fallIntoDitch))
+                       RNGScene(alienAbduct, friendKidnapped, fallIntoDitch))
