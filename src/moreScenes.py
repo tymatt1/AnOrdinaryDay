@@ -40,7 +40,7 @@ friendKidnapped = Scene(loseFriendCry, Assets.kidnapping, StaticsList(),
                         QuickTimeEvent("The van is actually pretty slow.\nYou might be able to jump in!", 2.5, jumpIntoVan))
 
 
-jerrySaved = Scene(goToClass, Assets.road, StaticsList(), TextBox("Oh no! You almost fell into a ditch, but\nJerry saved you and you go to class."))
+jerrySaved = Scene(goToClass, Assets.road, StaticsList(), TextBox("Oh no! You almost fell into a ditch,\nbut Jerry saved you and you go to class."))
 ditchMatthew = Scene(None, Assets.ditchDeathMatthew, StaticsList(), TextBox("You fell into a ditch and crack your head. Oh no.\nMatthew tried saving you, but he also fell into the ditch.\nAt least you don't die alone!"))
 fallIntoDitch = Scene(None, Assets.ditchDeathHead, StaticsList(),
                       AttributeCheck(("jerry", "true"), jerrySaved),
