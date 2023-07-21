@@ -9,6 +9,11 @@
 
 To install and set up the code, follow these steps:
 
+1. Download the most recent release exe file from the Releases section.
+2. Run the exe file.
+
+If that doesnt work,
+
 1. Clone the repository or download the code files from [GitHub](https://github.com/tymatt1/AnOrdinaryDay.git).
 2. Make sure you have Python installed on your system.
 3. Install the necessary dependencies by running the following command in your terminal:
