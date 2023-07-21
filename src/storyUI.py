@@ -81,7 +81,7 @@ class RNGScene(Element):
         :param scenes: A list of the potential scenes
         """
         super().__init__(StaticsList())
-        self.nextScene = random.choice(randomScenes)
+        self.choices = randomScenes
 
 
 class QuickTimeEvent(Element):
@@ -164,7 +164,7 @@ class Scene:
             elif self.nextScene is not None: self.nextScene.start()
 
         if type(elem) is RNGScene:
-            elem.nextScene.start()
+            random.choice(elem.choices).start()
 
         if type(elem) is QuickTimeEvent:
             elem.current += 1000 / 60
